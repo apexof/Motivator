@@ -12,7 +12,7 @@
     "dev": "NODE_ENV=development webpack & npm run server",
     "start": "node server/server.js",
     "sass-fix": "sass-lint-auto-fix -d -c slaf.yml",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "heroku-postbuild": "echo Skip build on Heroku"
   },
   "keywords": [],
