@@ -1,5 +1,8 @@
 import { RSAA } from "redux-api-middleware";
 
+const { IS_DEV } = require("../../server/db/config");
+
+const domain = IS_DEV ? "http://localhost:8081" : "";
 export const GET_ITEMS = "GET_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
 export const EDIT_ITEM = "EDIT_ITEM";
@@ -12,7 +15,7 @@ export const ERR = "_ERR";
 export function getItems(type) {
   return {
     [RSAA]: {
-      endpoint: `/${type}`,
+      endpoint: `${domain}/${type}`,
       method: "GET",
       types: [START, GET_ITEMS, ERR]
     }

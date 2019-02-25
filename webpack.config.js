@@ -10,10 +10,7 @@ const IS_DEV = NODE_ENV === "development";
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: {
-    index: "./index.jsx",
-    app: "./app.jsx"
-  },
+  entry: { index: "./index.jsx" },
   output: {
     filename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "dist")
@@ -73,13 +70,7 @@ module.exports = {
     new CleanWebpackPlugin(["dist/**/*.*"]),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./index.html",
-      chunks: ["index", "libs"]
-    }),
-    new HtmlWebpackPlugin({
-      filename: "app.html",
-      template: "./app.html",
-      chunks: ["app", "libs"]
+      template: "./index.html"
     })
   ],
   optimization: {
@@ -95,7 +86,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    compress: true
+    compress: true,
+    historyApiFallback: true
   },
   resolve: { extensions: [".js", ".json", ".jsx", "*"] }
 };

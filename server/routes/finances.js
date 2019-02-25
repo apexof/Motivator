@@ -1,5 +1,6 @@
 const models = require("../models/financeModels").modelNames;
 const db = require("../db/requests/finances");
+const checkJwt = require("../jwt");
 const { serverErrors } = require("../errorHandlers");
 
 module.exports = function(app) {
@@ -10,7 +11,7 @@ module.exports = function(app) {
         .catch(serverErrors);
     });
 
-    app.post(`/${model}`, (req, res) => {
+    app.post(`/${model}`, checkJwt, (req, res) => {
       db[`create_${model}`](req.body)
         .then(data => res.send(data))
         .catch(serverErrors);
