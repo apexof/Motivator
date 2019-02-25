@@ -5,12 +5,9 @@
   "sasslintConfig": "./.sass-lint.yml",
   "main": "./dist/index.html",
   "scripts": {
-    "b": "NODE_ENV=production webpack",
     "wds": "NODE_ENV=development npx webpack-dev-server",
-    "wdsp": "NODE_ENV=production npx webpack-dev-server",
-    "d": "NODE_ENV=development webpack",
+    "wdsp": "NODE_ENV=production ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "server": "nodemon server/server.js",
-    "dev": "NODE_ENV=development webpack & npm run server",
     "start": "npm run wdsp & node server/server.js",
     "sass-fix": "sass-lint-auto-fix -d -c slaf.yml",
     "build": "NODE_ENV=production webpack",
