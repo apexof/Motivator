@@ -13,12 +13,12 @@ const app = express();
 DBconnect();
 
 app.use(helmet());
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 app.use(multer.array());
 app.use(express.static("dist"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
 app.use("/callback", fallback("index.html", { root: "dist" }));
 
 require("./routes/finances")(app);
