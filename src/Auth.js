@@ -6,6 +6,8 @@ const redirectUri = IS_DEV
   ? "http://localhost:8080/callback"
   : "https://take-my-money.herokuapp.com/callback";
 
+console.log("redirectUri ", redirectUri);
+console.log("IS_DEV ", IS_DEV);
 class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
