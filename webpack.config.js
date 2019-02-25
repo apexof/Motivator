@@ -84,10 +84,5 @@ module.exports = {
       }
     }
   },
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    historyApiFallback: true
-  },
   resolve: { extensions: [".js", ".json", ".jsx", "*"] }
 };
