@@ -1,6 +1,5 @@
 import { RSAA } from "redux-api-middleware";
-
-import { START, ERR } from "./ACfinance";
+import { START, ERR, getHeaders } from "./ACcommon";
 
 export const ADD_OP = "ADD_OP";
 export const GET_OPS = "GET_OPS";
@@ -11,7 +10,8 @@ export function getOps() {
     [RSAA]: {
       types: [START, GET_OPS, ERR],
       method: "GET",
-      endpoint: "/operations"
+      endpoint: "/operations",
+      headers: getHeaders()
     }
   };
 }
@@ -22,7 +22,8 @@ export function addOp(formData) {
       types: [START, ADD_OP, ERR],
       method: "POST",
       endpoint: "/operations",
-      body: formData
+      body: formData,
+      headers: getHeaders()
     }
   };
 }
@@ -32,7 +33,8 @@ export function delOp(_id) {
     [RSAA]: {
       types: [START, DELETE_OP, ERR],
       method: "DELETE",
-      endpoint: `/operations/${_id}`
+      endpoint: `/operations/${_id}`,
+      headers: getHeaders()
     }
   };
 }

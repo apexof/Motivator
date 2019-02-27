@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { fin } from "../../../text";
 import { textTrimmer, moneyFormat, separate } from "../../../helpers";
 import style from "./Item.sass";
-import colors from "../../App/sass/colors.sass";
+import colors from "../../App/sass/vars.sass";
 import EditItem from "../EditItem";
 import DelItem from "../DelItem";
 

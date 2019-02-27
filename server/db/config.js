@@ -1,12 +1,14 @@
 const NODE_ENV = process.env.NODE_ENV || "development";
-console.log(process.env.NODE_ENV);
 const IS_DEV = NODE_ENV === "development";
-console.log("IS_DEV ", IS_DEV);
 const PORT = NODE_ENV === "development" ? 8080 : process.env.PORT;
-const MONGODB_URI = "mongodb+srv://apexof:Florida_6@take-my-money-qnhtm.mongodb.net/qwerty?retryWrites=true";
+const site = IS_DEV ? "http://localhost:8080" : "https://take-my-money.herokuapp.com";
+const clientID = "MfWXuUWdMvJDyMDTNIHQkslK6u8mTdXu";
+const domain = "dev-532l1po4.eu.auth0.com";
 
 module.exports = {
   PORT,
-  MONGODB_URI,
-  IS_DEV
+  IS_DEV,
+  site,
+  domain,
+  clientID
 };
