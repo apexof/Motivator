@@ -2,6 +2,7 @@ import auth0 from "auth0-js";
 
 const { domain, clientID, site } = require("../../../server/db/config");
 
+console.log(site);
 class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
