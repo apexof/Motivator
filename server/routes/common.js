@@ -7,7 +7,6 @@ module.exports = function(app) {
     DBconnect(req.params.userName)
       .then((data) => {
         const dbName = data.connections[0].db.s.databaseName;
-        console.log(dbName);
         res.send(dbName);
       })
       .catch(serverErrors);

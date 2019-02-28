@@ -22,7 +22,6 @@ class App extends React.Component {
       url: `/choose-db/${userName}`
     })).data;
 
-    console.log("dbName", dbName);
     if (dbName) {
       getItems(INCOMES);
       getItems(WALLETS);

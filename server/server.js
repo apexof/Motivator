@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/callback", fallback("index.html", { root: "dist" }));
 app.use("/app", fallback("index.html", { root: "dist" }));
+app.use("/demo", fallback("index.html", { root: "dist" }));
 
 require("./routes/common")(app);
 require("./routes/finances")(app);

@@ -4,6 +4,7 @@ import { Route, withRouter } from "react-router-dom";
 import App from "./App";
 import auth0 from "./Auth/Auth";
 import Callback from "./Auth/Callback";
+import Home from "./Home/Home";
 import SecuredRoute from "./Auth/SecuredRoute";
 
 class Main extends React.Component {
@@ -26,8 +27,14 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Route exact path="/" component={App} />
-        <SecuredRoute path="/app" component={App} checkingSession={this.state.checkingSession} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/demo" component={App} />
+        <SecuredRoute
+          exact
+          path="/app"
+          component={App}
+          checkingSession={this.state.checkingSession}
+        />
         <Route exact path="/callback" component={Callback} />
       </div>
     );

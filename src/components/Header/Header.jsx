@@ -10,8 +10,11 @@ function Header() {
   return (
     <div className={style.header}>
       {!isAuth() && (
-        <div className={style.sign} onClick={signIn}>
-          Войти
+        <div>
+          <div className={style.sign} onClick={signIn}>
+            Войти
+          </div>
+          <label className={style.demo}>Демо-аккаунт</label>
         </div>
       )}
       {isAuth() && (
