@@ -9,10 +9,6 @@ const checkJwt = (req, res, next) => {
     && ((mongoose.connection.readyState === 1 && mongoose.connection.db.s.databaseName === "demo") // подключены к базе демо
       || (req.params.userName && req.params.userName === "demo")) // пробуем подкл. к базе demo
   ) return next();
-  // if (
-  //   (mongoose.connection.readyState === 1 && mongoose.connection.db.s.databaseName === "demo") // подключены к базе демо
-  //   || (req.params.userName && req.params.userName === "demo") // пробуем подкл. к базе demo
-  // ) return next();
 
   return jwt({
     secret: jwksRsa.expressJwtSecret({

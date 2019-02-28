@@ -21,6 +21,7 @@ function Slider({ chartData, loading }) {
       </div>
     );
   }
+  console.log("chartData",chartData) 
   const charts = chartData.map(chart => (
     <div key={chart.key}>
       <Doughnut data={chart} width={400} height={400} />

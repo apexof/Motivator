@@ -4,19 +4,26 @@ import PropTypes from "prop-types";
 import style from "./Info.sass";
 
 function Info({ names, amounts, ids, date }) {
-  const lines = [];
+  let lines = [];
   let summ = 0;
   if (names.length) {
     for (let i = 0; i < names.length; i += 1) {
       summ += amounts[i];
-      lines.push(
-        <div key={ids[i]} className={style.container}>
-          <span>{names[i]}</span>
-          <span>{amounts[i]}</span>
-        </div>
-      );
+      lines.push({
+        id: ids[i],
+        name: names[i],
+        amount: amounts[i]
+      });
     }
+    lines.sort((a, b) => a.name.localeCompare(b.name));
+    lines = lines.map(line => (
+      <div key={line.id} className={style.container}>
+        <span>{line.name}</span>
+        <span>{line.amount}</span>
+      </div>
+    ));
   }
+  // console.log(lines);
 
   return (
     <div>
