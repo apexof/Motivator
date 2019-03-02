@@ -8,7 +8,8 @@ const incomes = mongoose.model(
       name: { type: String, required: true },
       plan: { type: Number },
       disable: { type: Boolean },
-      model: { type: String, required: true }
+      model: { type: String, required: true },
+      color: { type: String, required: true }
     },
     { collection: INCOMES }
   )
@@ -36,7 +37,8 @@ const costs = mongoose.model(
       name: { type: String, required: true },
       plan: { type: Number },
       disable: { type: Boolean },
-      model: { type: String, required: true }
+      model: { type: String, required: true },
+      color: { type: String, required: true }
     },
     { collection: COSTS }
   )

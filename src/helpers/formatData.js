@@ -16,6 +16,17 @@ export function moneyFormat(num) {
   return money;
 }
 
+export function fixAccuracy(num) {
+  return +num.toFixed(10);
+}
+
+export function MMYY(date) {
+  const newDate = new Date(date);
+  newDate.setDate(0);
+  newDate.setHours(0, 0, 0, 0);
+  return newDate.toString();
+}
+
 export function separate(num) {
   if (!num) return num;
   const text = num.toString();

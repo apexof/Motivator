@@ -1,4 +1,5 @@
 import React from "react";
+import randomColor from "randomcolor";
 import PropTypes from "prop-types";
 import Checkbox from "../../../CheckBox";
 import { fin, WALLETS } from "../../../../text";
@@ -25,6 +26,7 @@ function WindowContent({ addItem, closeModal, type }) {
         <p>{fin[type].plan}</p>
         <input type="number" step="0.01" min="0" name="plan" />
         <input type="hidden" name="model" value={type} />
+        {!isWallets && <input type="hidden" name="color" value={randomColor()} />}
 
         {isWallets && (
           <div>

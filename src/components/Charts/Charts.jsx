@@ -3,7 +3,7 @@ import Chart from "./Chart";
 import style from "./Charts.sass";
 import { INCOMES, COSTS } from "../../../constants";
 
-class ChartsFilter extends React.Component {
+class Charts extends React.Component {
   state = { chartType: COSTS };
 
   showIncomesCharts = () => {
@@ -45,4 +45,4 @@ class ChartsFilter extends React.Component {
   }
 }
 
-export default ChartsFilter;
+export default Charts;

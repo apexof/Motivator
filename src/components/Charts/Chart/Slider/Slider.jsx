@@ -13,7 +13,6 @@ function Slider({ chartData, loading }) {
     slidesToShow: 1,
     slidesToScroll: 1
   };
-
   if (!chartData.length && !loading) {
     return (
       <div className={style.container}>
@@ -21,18 +20,29 @@ function Slider({ chartData, loading }) {
       </div>
     );
   }
-  console.log("chartData",chartData) 
-  const charts = chartData.map(chart => (
-    <div key={chart.key}>
-      <Doughnut data={chart} width={400} height={400} />
-      <Info
-        amounts={chart.datasets[0].data}
-        names={chart.labels}
-        ids={chart.ids}
-        date={chart.date}
-      />
-    </div>
-  ));
+  const charts = chartData.map((chart) => {
+    // console.log(chart.items);
+    const colors = chart.items.map(item => item.bgcColor);
+    return (
+      <div key={chart.month}>
+        <Doughnut
+          data={{
+            labels: chart.items.map(item => item.name),
+            datasets: [
+              {
+                data: chart.items.map(item => item.amount),
+                backgroundColor: colors,
+                hoverBackgroundColor: colors
+              }
+            ]
+          }}
+          width={400}
+          height={400}
+        />
+        <Info month={chart.month} unSortedData={chart.items} />
+      </div>
+    );
+  });
 
   return <div className={style.container}>{<Slick {...settings}>{charts}</Slick>}</div>;
 }

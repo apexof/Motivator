@@ -2,32 +2,25 @@ import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import style from "./Info.sass";
+import withSort from "../../../../HOC/withSort";
 
-function Info({ names, amounts, ids, date }) {
-  let lines = [];
+function Info({ sortedData, unSortedData, month, sort }) {
+  // console.log("sortedData: ", sortedData);
+  // console.log("unSortedData: ", unSortedData);
   let summ = 0;
-  if (names.length) {
-    for (let i = 0; i < names.length; i += 1) {
-      summ += amounts[i];
-      lines.push({
-        id: ids[i],
-        name: names[i],
-        amount: amounts[i]
-      });
-    }
-    lines.sort((a, b) => a.name.localeCompare(b.name));
-    lines = lines.map(line => (
-      <div key={line.id} className={style.container}>
-        <span>{line.name}</span>
-        <span>{line.amount}</span>
+  const lines = sortedData.map((item) => {
+    summ += item.amount;
+    return (
+      <div key={item._id} className={style.container}>
+        <span onClick={sort("str")}>{item.name}</span>
+        <span onClick={sort("num")}>{item.amount}</span>
       </div>
-    ));
-  }
-  // console.log(lines);
+    );
+  });
 
   return (
     <div>
-      <h2>{moment(date).format("MMMM YYYY")}</h2>
+      <h2>{moment(month).format("MMMM YYYY")}</h2>
       {lines}
       <div className={style.summ}>
         <span>Сумма: </span>
@@ -38,15 +31,11 @@ function Info({ names, amounts, ids, date }) {
 }
 
 Info.propTypes = {
-  names: PropTypes.instanceOf(Array),
-  amounts: PropTypes.instanceOf(Array),
-  ids: PropTypes.instanceOf(Array),
-  date: PropTypes.string
+  sortedData: PropTypes.instanceOf(Array),
+  month: PropTypes.instanceOf(Date).isRequired,
+  sort: PropTypes.func.isRequired
 };
-Info.defaultProps = {
-  names: [],
-  amounts: [],
-  ids: [],
-  date: ""
-};
-export default Info;
+
+Info.defaultProps = { sortedData: [] };
+
+export default withSort(Info);

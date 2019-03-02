@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import Balance from "./Balance";
-import { makeGetActiveFins } from "../../../selectors";
+import makeGetActiveFins from "../../../selectors/finsSelectors";
+import { WALLETS } from "../../../../constants";
 
 const makeMapStateToProps = () => {
   const getActiveFins = makeGetActiveFins();
   function mapStateToProps(state) {
-    return { wallets: getActiveFins(state.finances.wallets) };
+    return { wallets: getActiveFins(state, { type: WALLETS }) };
   }
   return mapStateToProps;
 };

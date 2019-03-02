@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import SliderCharts from "./Slider/Slider";
-import makeOpsByPeriods from "../../../selectors/opsByPeriods";
+import { makeSummGroupedByMonth } from "../../../selectors/opsSelectors";
 
 const makeMapStateToProps = () => {
-  const opsByPeriods = makeOpsByPeriods();
-  function mapStateToProps(state, { type }) {
+  const summGroupedByMonth = makeSummGroupedByMonth();
+  function mapStateToProps(state, props) {
     return {
-      chartData: opsByPeriods(state, type),
+      chartData: summGroupedByMonth(state, props),
       loading: state.loading
     };
   }

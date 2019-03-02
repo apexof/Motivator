@@ -7,12 +7,12 @@ import opWindow from "../../../HOC/windows/opWindow";
 import listOpWindow from "../../../HOC/windows/listOpWindow";
 import AddOp from "../../Operations/AddOp";
 import ListOp from "../../Operations/ListOp";
-import { opsFilter, THIS_MONTH_SUMM } from "../../../selectors/opsFilter";
+import { monthAmount } from "../../../selectors/opsSelectors";
 
 const mapStateToProps = (state, { type, _id, amount }) => ({
   dragEl: state.dragEl,
-  amount: type !== WALLETS ? opsFilter(state.operations, _id, THIS_MONTH_SUMM) : amount,
-  holdWallets: type === WALLETS ? opsFilter(state.operations, _id, THIS_MONTH_SUMM) : undefined
+  amount: type !== WALLETS ? monthAmount(state, { _id }) : amount,
+  holdWallets: type === WALLETS ? monthAmount(state, { _id }) : undefined
 });
 const mapDispatchToProps = {
   deleteItem,

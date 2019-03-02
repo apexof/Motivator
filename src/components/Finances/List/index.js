@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import List from "./List";
-import { makeGetActiveFins } from "../../../selectors";
+import makeGetActiveFins from "../../../selectors/finsSelectors";
 
 const makeMapStateToProps = () => {
   const getActiveFins = makeGetActiveFins();
-  function mapStateToProps(state, { type }) {
-    return { items: getActiveFins(state.finances[type]) };
+  function mapStateToProps(state, props) {
+    return { items: getActiveFins(state, props) };
   }
   return mapStateToProps;
 };

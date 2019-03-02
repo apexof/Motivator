@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import ListOp from "./ListOp";
-import { opsFilter, OPS_BY_ID } from "../../../selectors/opsFilter";
+import { opsByFinId } from "../../../selectors/opsSelectors";
 
-const mapStateToProps = (state, { _id }) => ({ ops: opsFilter(state.operations, _id, OPS_BY_ID) });
+function mapStateToProps(state, props) {
+  return { ops: opsByFinId(state, props) };
+}
 
 const ConnectedListOp = connect(mapStateToProps)(ListOp);
 
