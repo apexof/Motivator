@@ -9,8 +9,7 @@
     "start": "node server/server.js",
     "dev": "NODE_ENV=development webpack",
     "sass-fix": "sass-lint-auto-fix -d -c slaf.yml",
-    "build": "NODE_ENV=production webpack",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "heroku-postbuild": "NODE_ENV=production webpack"
   },
   "keywords": [],
   "author": "apexof",
