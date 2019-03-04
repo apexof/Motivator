@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import randomColor from "randomcolor";
 
 class ColorPicker extends React.Component {
-  state = { color: this.props.color };
+  state = { color: this.props.color || randomColor() };
 
   handleChangeComplete = (color) => {
     this.setState({ color: color.hex });
@@ -23,6 +23,5 @@ class ColorPicker extends React.Component {
     );
   }
 }
-ColorPicker.propTypes = { color: PropTypes.string };
-ColorPicker.defaultProps = { color: randomColor() };
+ColorPicker.propTypes = { color: PropTypes.string.isRequired };
 export default ColorPicker;
