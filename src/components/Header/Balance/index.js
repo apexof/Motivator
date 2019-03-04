@@ -5,8 +5,8 @@ import { WALLETS } from "../../../../constants";
 
 const makeMapStateToProps = () => {
   const getActiveFins = makeGetActiveFins();
-  function mapStateToProps(state) {
-    return { wallets: getActiveFins(state, { type: WALLETS }) };
+  function mapStateToProps({ finances }) {
+    return { wallets: getActiveFins({ finances }, { type: WALLETS }) };
   }
   return mapStateToProps;
 };

@@ -1,8 +1,8 @@
-export const START_DND = "START_DND";
+export const SET_DRAG_EL = "SET_DRAG_EL";
 
-export function startDnd(data) {
+export function setDragEl(data) {
   return {
-    type: START_DND,
+    type: SET_DRAG_EL,
     data
   };
 }

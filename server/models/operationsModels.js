@@ -13,8 +13,7 @@ const operations = mongoose.model(
       to_type: { type: String, required: true },
       amount: { type: Number, required: true },
       date: { type: Date, required: true },
-      tag: { type: String },
-      comment: { type: String }
+      tag: { type: String }
     },
     { collection: "operations" }
   )

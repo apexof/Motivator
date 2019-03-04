@@ -1,9 +1,9 @@
-import { START_DND } from "../AC";
+import { SET_DRAG_EL } from "../AC";
 
 function dndReducer(dragEl = {}, { type, data }) {
   switch (type) {
-    case START_DND:
-      return data;
+    case SET_DRAG_EL:
+      return JSON.stringify(data) === JSON.stringify(dragEl) ? dragEl : data;
     default:
       return dragEl;
   }

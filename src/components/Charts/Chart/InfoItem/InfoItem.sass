@@ -1,0 +1,50 @@
+$size: 1.4rem
+.container
+  display: flex
+  align-items: center
+  justify-content: space-between
+  .color
+    width: $size
+    height: $size
+    margin-right: 5px
+    cursor: pointer
+    border: 1px solid #6f6f6f
+    border-radius: 3px
+    &:hover
+      width: $size + .1rem
+      height: $size + .1rem
+.textContainer
+  width: 100%
+  border-bottom: 1px dashed grey
+  .name
+    display: inline-block
+    width: 70%
+  .amount
+    display: inline-block
+    width: 30%
+    text-align: right
+.tagContainer
+  margin: 0 20px
+  border-bottom: 1px dotted grey
+  .tagName
+    display: inline-block
+    width: 70%
+  .tagAmount
+    display: inline-block
+    width: 30%
+    text-align: right
+
+.open, .closed
+  margin-left: 3px
+  color: #5a5b5d
+.open
+  &::before
+    content: '▼'
+.closed
+  &::before
+    content: '▶'
+.tagsHide
+  display: none
+.tagsShow
+  display: block
+

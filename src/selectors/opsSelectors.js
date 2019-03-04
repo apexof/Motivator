@@ -4,22 +4,27 @@ import { fixAccuracy, MMYY } from "../helpers";
 import { itemsByFinType } from "./finsSelectors";
 
 const opsFromState = state => state.operations;
-const getId = (state, props) => props._id;
+const opsByFinId = ({ operations: ops }, { _id }) => ops.filter(op => op.from_id === _id || op.to_id === _id);
+const opsByMonth = ({ operations: ops }, { month = MMYY(new Date()) }) => ops.filter(op => MMYY(op.date) === month);
+const opsByIdByMonth = (state, props) => opsByMonth({ operations: opsByFinId(state, props) }, props);
 const getType = (state, props) => props.type;
-const getMonth = (state, props) => (props.month ? props.month : MMYY(new Date()));
-const monthsHavingOps = (state) => {
-  const months = new Set();
-  state.operations.forEach((op) => {
-    months.add(MMYY(op.date));
-  });
-  return months;
-};
+const mons = new Set();
 
-const opsByFinId = createSelector(
-  [getId, opsFromState],
-  (_id, ops) => ops.filter(op => op.from_id === _id || op.to_id === _id)
+const monthsHavingOps = createSelector(
+  [opsFromState],
+  (ops) => {
+    ops.forEach((op) => {
+      mons.add(MMYY(op.date));
+    });
+    return mons;
+  }
 );
+// function filt(items, func) {
+//   let uniqVals = [];
+//   items.forEach(item => func(item));
+// }
 
+// const monthsHavingOps = ({ operations: ops }) => filt(ops, op => MMYY(op.date));
 const opsByFinType = createSelector(
   [getType, opsFromState],
   (type, ops) => {
@@ -36,7 +41,7 @@ const opsByFinType = createSelector(
   }
 );
 
-const makeSummGroupedByMonth = () => createSelector(
+const makeSummGroupedByMonth = createSelector(
   [opsByFinType, itemsByFinType, monthsHavingOps],
   (operations, items, months) => {
     const summGroupedByMonth = [];
@@ -44,11 +49,13 @@ const makeSummGroupedByMonth = () => createSelector(
       const Nitems = [];
       items.forEach((item) => {
         const monthSumm = monthAmount({ operations }, { _id: item._id, month });
+        const tags = tagsByItemId({ operations }, { _id: item._id, month });
         if (monthSumm > 0) {
           Nitems.push({
             _id: item._id,
             name: item.name,
             amount: monthSumm,
+            tags,
             bgcColor: item.color
           });
         }
@@ -56,26 +63,38 @@ const makeSummGroupedByMonth = () => createSelector(
       if (Nitems.length) {
         summGroupedByMonth.push({
           month: new Date(month),
-          items: Nitems
+          items: Nitems.sort((a, b) => a.name.localeCompare(b.name))
         });
       }
     });
+    summGroupedByMonth.sort((a, b) => a.month - b.month);
     return summGroupedByMonth;
   }
 );
 
 const monthAmount = createSelector(
-  [getMonth, opsByFinId],
-  (month, ops) => {
-    const monthSumm = ops.reduce((summ, op) => {
-      const opMonth = MMYY(op.date);
-      return opMonth === month ? summ + op.amount : summ;
-    }, 0);
+  [opsByIdByMonth],
+  ops => fixAccuracy(ops.reduce((summ, op) => summ + op.amount, 0))
+);
 
-    return fixAccuracy(monthSumm);
+const tagsByItemId = createSelector(
+  [opsByIdByMonth],
+  (ops) => {
+    const tags = [];
+    ops.forEach((op) => {
+      if (op.tag) {
+        const index = tags.findIndex(tag => tag.tagName.toLowerCase() === op.tag.toLowerCase());
+        if (index >= 0) {
+          tags[index].amount += op.amount;
+        } else {
+          tags.push({ tagName: op.tag, amount: op.amount });
+        }
+      }
+    });
+    return tags;
   }
 );
 
 export {
-  monthAmount, opsByFinId, opsByFinType, makeSummGroupedByMonth
+  monthAmount, opsByFinId, makeSummGroupedByMonth
 };

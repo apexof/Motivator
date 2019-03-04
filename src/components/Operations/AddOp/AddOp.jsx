@@ -39,8 +39,6 @@ function AddOp({ from, to, closeModal, addOp }) {
             />
             <p>Тэг:</p>
             <input type="text" name="tag" />
-            <p>Комментарий:</p>
-            <input type="text" name="comment" />
           </div>
 
           <DatePicker />

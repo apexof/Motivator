@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { deleteItem, disableItem, startDnd } from "../../../AC";
+import { deleteItem, disableItem, setDragEl } from "../../../AC";
 import Item from "./DragNDrop";
 import { WALLETS } from "../../../../constants";
 
@@ -9,15 +9,15 @@ import AddOp from "../../Operations/AddOp";
 import ListOp from "../../Operations/ListOp";
 import { monthAmount } from "../../../selectors/opsSelectors";
 
-const mapStateToProps = (state, { type, _id, amount }) => ({
-  dragEl: state.dragEl,
-  amount: type !== WALLETS ? monthAmount(state, { _id }) : amount,
-  holdWallets: type === WALLETS ? monthAmount(state, { _id }) : undefined
+const mapStateToProps = ({ operations, dragEl }, { type, _id, amount }) => ({
+  dragEl,
+  amount: type !== WALLETS ? monthAmount({ operations }, { _id }) : amount,
+  holdWallets: type === WALLETS ? monthAmount({ operations }, { _id }) : undefined
 });
 const mapDispatchToProps = {
   deleteItem,
   disableItem,
-  startDnd
+  setDragEl
 };
 
 const ConnectedItem = connect(

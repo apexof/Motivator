@@ -1,5 +1,5 @@
 import React from "react";
-import Chart from "./Chart";
+import Slider from "./Slider";
 import style from "./Charts.sass";
 import { INCOMES, COSTS } from "../../../constants";
 
@@ -38,7 +38,7 @@ class Charts extends React.Component {
           </div>
         </div>
         <div className={style.charts}>
-          <Chart type={this.state.chartType} />
+          <Slider type={this.state.chartType} />
         </div>
       </div>
     );

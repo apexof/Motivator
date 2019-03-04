@@ -22,7 +22,7 @@ export function fixAccuracy(num) {
 
 export function MMYY(date) {
   const newDate = new Date(date);
-  newDate.setDate(0);
+  newDate.setDate(1);
   newDate.setHours(0, 0, 0, 0);
   return newDate.toString();
 }

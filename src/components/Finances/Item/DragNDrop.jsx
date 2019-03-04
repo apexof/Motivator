@@ -5,10 +5,10 @@ import Item from "./Item";
 const { INCOMES, WALLETS, COSTS } = require("../../../../constants");
 
 function DragNDrop(props) {
-  const { _id, type, openModal, dragEl, startDnd, name, amount } = props;
+  const { _id, type, openModal, dragEl, setDragEl, name, amount } = props;
   function dragStart(e) {
-    if (type === COSTS || (amount <= 0 && type === WALLETS)) e.preventDefault();
-    startDnd({
+    if (type === COSTS || (amount <= 0 && type === WALLETS)) return e.preventDefault();
+    setDragEl({
       _id,
       type,
       name,
@@ -17,9 +17,9 @@ function DragNDrop(props) {
   }
 
   function dragOver(e) {
-    if (dragEl.type === INCOMES && type === WALLETS) e.preventDefault();
-    if (dragEl.type === WALLETS && type === COSTS) e.preventDefault();
-    if (dragEl.type === WALLETS && type === WALLETS && _id !== dragEl._id) e.preventDefault();
+    if (dragEl.type === INCOMES && type === WALLETS) return e.preventDefault();
+    if (dragEl.type === WALLETS && type === COSTS) return e.preventDefault();
+    if (dragEl.type === WALLETS && type === WALLETS && _id !== dragEl._id) return e.preventDefault();
   }
 
   function drop(e) {
@@ -45,7 +45,7 @@ DragNDrop.propTypes = {
   name: PropTypes.string.isRequired,
   amount: PropTypes.number,
   openModal: PropTypes.func.isRequired,
-  startDnd: PropTypes.func.isRequired,
+  setDragEl: PropTypes.func.isRequired,
   dragEl: PropTypes.shape({
     _id: PropTypes.string,
     type: PropTypes.string
