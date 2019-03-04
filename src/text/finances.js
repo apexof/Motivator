@@ -17,7 +17,7 @@ export const fin = {
   [WALLETS]: {
     title: "Счета/карты/кошельки",
     addWindowTitle: "Новый счет/карта/кошелек",
-    editWindowTitle: "Редактирование счета/карты/кошелька",
+    editWindowTitle: "Редактирование счета",
     amount: "Текущая сумма:",
     plan: "Планирую откладывать в месяц:",
     round:

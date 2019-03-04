@@ -17,6 +17,7 @@ function List({ type, items }) {
           name={item.name}
           amount={item.amount}
           plan={item.plan}
+          color={item.color}
         />
       ))}
       <AddItem type={type} />

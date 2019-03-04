@@ -24,7 +24,7 @@ function AddOp({ from, to, closeModal, addOp }) {
           <input type="hidden" name="to_id" value={to._id} />
           <input type="hidden" name="from_type" value={from.type} />
           <input type="hidden" name="to_type" value={to.type} />
-          <div className={style.inputsBlock}>
+          <div>
             <p>
               <span className={star}>* </span>Сумма операции:
             </p>
