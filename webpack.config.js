@@ -17,7 +17,7 @@ module.exports = {
   },
   devtool: IS_DEV ? "inline-source-map" : false,
   mode: NODE_ENV,
-  watch: true,
+  watch: IS_DEV,
   module: {
     rules: [
       {

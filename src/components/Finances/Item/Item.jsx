@@ -99,7 +99,7 @@ Item.propTypes = {
 Item.defaultProps = {
   plan: null,
   holdWallets: undefined,
-  color: null
+  color: undefined
 };
 
 export default Item;

@@ -68,7 +68,7 @@ EditWindow.propTypes = {
 EditWindow.defaultProps = {
   plan: 0,
   amount: null,
-  color: null
+  color: undefined
 };
 
 export default EditWindow;

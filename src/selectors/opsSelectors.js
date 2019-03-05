@@ -19,12 +19,17 @@ const monthsHavingOps = createSelector(
     return mons;
   }
 );
-// function filt(items, func) {
-//   let uniqVals = [];
-//   items.forEach(item => func(item));
-// }
 
-// const monthsHavingOps = ({ operations: ops }) => filt(ops, op => MMYY(op.date));
+const periodOfOps = createSelector(
+  [opsByMonth],
+  (ops) => {
+    ops.sort((a, b) => new Date(a.date) - new Date(b.date));
+    const firstDay = new Date(ops[0].date).getDate();
+    const lastDay = new Date(ops[ops.length - 1].date).getDate();
+    return [firstDay, lastDay];
+  }
+);
+
 const opsByFinType = createSelector(
   [getType, opsFromState],
   (type, ops) => {
@@ -63,7 +68,8 @@ const makeSummGroupedByMonth = createSelector(
       if (Nitems.length) {
         summGroupedByMonth.push({
           month: new Date(month),
-          items: Nitems.sort((a, b) => a.name.localeCompare(b.name))
+          items: Nitems.sort((a, b) => a.name.localeCompare(b.name)),
+          period: periodOfOps({ operations }, { month })
         });
       }
     });

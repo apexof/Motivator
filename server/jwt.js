@@ -4,10 +4,14 @@ const jwksRsa = require("jwks-rsa");
 const { domain, clientID } = require("./db/config");
 
 const checkJwt = (req, res, next) => {
+  // if (
+  //   req.method === "GET"
+  //   && ((mongoose.connection.readyState === 1 && mongoose.connection.db.s.databaseName === "demo") // подключены к базе демо
+  //     || (req.params.userName && req.params.userName === "demo")) // пробуем подкл. к базе demo
+  // ) return next();
   if (
-    req.method === "GET"
-    && ((mongoose.connection.readyState === 1 && mongoose.connection.db.s.databaseName === "demo") // подключены к базе демо
-      || (req.params.userName && req.params.userName === "demo")) // пробуем подкл. к базе demo
+    (mongoose.connection.readyState === 1 && mongoose.connection.db.s.databaseName === "demo") // подключены к базе демо
+    || (req.params.userName && req.params.userName === "demo") // пробуем подкл. к базе demo
   ) return next();
 
   return jwt({

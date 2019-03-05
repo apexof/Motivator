@@ -1,10 +1,9 @@
 import React from "react";
 import { CirclePicker } from "react-color";
 import PropTypes from "prop-types";
-import randomColor from "randomcolor";
 
 class ColorPicker extends React.Component {
-  state = { color: this.props.color || randomColor() };
+  state = { color: this.props.color };
 
   handleChangeComplete = (color) => {
     this.setState({ color: color.hex });
@@ -23,5 +22,6 @@ class ColorPicker extends React.Component {
     );
   }
 }
-ColorPicker.propTypes = { color: PropTypes.string.isRequired };
+ColorPicker.propTypes = { color: PropTypes.string };
+ColorPicker.defaultProps = { color: "#d7d7d7" };
 export default ColorPicker;
