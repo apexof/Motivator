@@ -6,14 +6,14 @@ function ConfirmContent({ title, confirmText, confirm, cancelText, cancel }) {
   return (
     <>
       <div className={style.title}>{title}</div>
-      <div className={style.buttons}>
+      <form className={style.buttons}>
         <button className={style.firstButton} onClick={confirm} type="button">
           {confirmText}
         </button>
         <button type="button" onClick={cancel}>
           {cancelText}
         </button>
-      </div>
+      </form>
     </>
   );
 }

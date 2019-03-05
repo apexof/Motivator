@@ -1,6 +1,7 @@
 import React from "react";
 import { CirclePicker } from "react-color";
 import PropTypes from "prop-types";
+import style from "./ColorPicker.sass";
 
 class ColorPicker extends React.Component {
   state = { color: this.props.color };
@@ -11,7 +12,7 @@ class ColorPicker extends React.Component {
 
   render() {
     return (
-      <div style={{ marginLeft: 30, marginTop: 15 }}>
+      <div className={style.colorPicker}>
         <CirclePicker
           width={220}
           color={this.state.color}

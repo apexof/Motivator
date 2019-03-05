@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Float = require("mongoose-float").loadType(mongoose, 10);
 const { INCOMES, WALLETS, COSTS } = require("../../constants");
 
 const incomes = mongoose.model(
@@ -21,7 +22,7 @@ const wallets = mongoose.model(
     {
       name: { type: String, required: true },
       plan: { type: Number },
-      amount: { type: Number, required: true },
+      amount: { type: Float, required: true },
       balance: { type: Boolean },
       disable: { type: Boolean },
       model: { type: String, required: true }

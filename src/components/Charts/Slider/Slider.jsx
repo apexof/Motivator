@@ -8,16 +8,14 @@ import { MMYY } from "../../../helpers";
 const customStyle = `
   .slick-prev, .slick-next {
     top: 200px;
-    width: 21px;
-    height: 22px;
-    border: 1px solid #d6d6d6;
   }
   .slick-prev:before, .slick-next:before {
     color: #1c2026;
     line-height: 22px;
   }
-  .slick-dots .slick-active button {
-    background: #515458;
+  .slick-dots li button {  
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .5);
   }`;
 class Slider extends React.Component {
   slider = React.createRef();

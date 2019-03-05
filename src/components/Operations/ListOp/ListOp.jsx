@@ -51,6 +51,7 @@ class ListOp extends React.Component {
                 to_id={op.to_id}
                 _id={op._id}
                 amount={op.amount}
+                tag={op.tag}
               />
             </div>
           ))}
