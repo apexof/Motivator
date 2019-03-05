@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import ColorPicker from "../../ColorPicker";
 import style from "./EditWindow.sass";
+import Checkbox from "../../../CheckBox";
 import { fin, WALLETS } from "../../../../text";
 import { star } from "../../../App/sass/global.sass";
 
-function EditWindow({ _id, name, plan, amount, type, editItem, closeModal, color }) {
+function EditWindow({ _id, name, plan, amount, type, editItem, closeModal, color, balance }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -42,6 +43,10 @@ function EditWindow({ _id, name, plan, amount, type, editItem, closeModal, color
                   defaultValue={amount}
                   required
                 />
+                <div className={style.balance}>
+                  <Checkbox name="balance" value={balance} />
+                  <span>Учитывыть в общем балансе</span>
+                </div>
               </>
             )}
           </div>
@@ -62,7 +67,8 @@ EditWindow.propTypes = {
   type: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   editItem: PropTypes.func.isRequired,
-  color: PropTypes.string
+  color: PropTypes.string,
+  balance: PropTypes.bool.isRequired
 };
 
 EditWindow.defaultProps = {

@@ -37,24 +37,25 @@ function del_all_ops(_id) {
 function update_wallets(op, delMode = false) {
   const { from_type, from_id, to_type, to_id } = op;
   const amount = delMode ? -op.amount : op.amount;
-  const dec = { $inc: { amount: -amount } };
-  const inc = { $inc: { amount } };
 
   if (to_type === COSTS) {
-    return Promise.all([upd(from_id, dec)]);
+    return Promise.all([upd(from_id, -amount)]);
   }
   if (from_type === INCOMES) {
-    return Promise.all([upd(to_id, inc)]);
+    return Promise.all([upd(to_id, amount)]);
   }
   if (from_type === WALLETS && to_type === WALLETS) {
-    return Promise.all([upd(from_id, dec), upd(to_id, inc)]);
+    return Promise.all([upd(from_id, -amount), upd(to_id, amount)]);
   }
 
   return console.log("add_operation ни одно условие не сработало");
 }
 
-function upd(_id, obj) {
-  return wallets.updateOne({ _id }, obj).then(() => wallets.findById(_id));
+function upd(_id, dif) {
+  return wallets
+    .findById(_id)
+    .then(({ amount }) => wallets.updateOne({ _id }, { amount: +(amount + dif).toFixed(10) }))
+    .then(() => wallets.findById(_id));
 }
 
 module.exports = {

@@ -20,7 +20,8 @@ function Item({
   disableItem,
   openListOp,
   funcs,
-  color
+  color,
+  balance
 }) {
   const { dragStart, dragOver, drop } = funcs;
   const monthSumm = type === WALLETS ? holdWallets : amount;
@@ -57,7 +58,15 @@ function Item({
           cancelText="Удалить только иконку"
           cancel={() => disableItem(_id, type)}
         />
-        <EditItem _id={_id} name={name} plan={plan} amount={amount} type={type} color={color} />
+        <EditItem
+          _id={_id}
+          name={name}
+          plan={plan}
+          amount={amount}
+          type={type}
+          color={color}
+          balance={balance}
+        />
       </div>
       <p
         title={name}
@@ -89,6 +98,7 @@ Item.propTypes = {
   disableItem: PropTypes.func.isRequired,
   openListOp: PropTypes.func.isRequired,
   color: PropTypes.string,
+  balance: PropTypes.bool,
   funcs: PropTypes.shape({
     dragStart: PropTypes.func.isRequired,
     dragOver: PropTypes.func.isRequired,
@@ -99,7 +109,8 @@ Item.propTypes = {
 Item.defaultProps = {
   plan: null,
   holdWallets: undefined,
-  color: undefined
+  color: undefined,
+  balance: undefined
 };
 
 export default Item;
