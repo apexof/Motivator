@@ -64,6 +64,8 @@ const config = {
     ]
   },
   plugins: [
+    new CleanObsoleteChunks(),
+    new CleanWebpackPlugin(["dist/**/*.*"]),
     new webpack.EnvironmentPlugin(["NODE_ENV"]),
     new MiniCssExtractPlugin({ filename: "css/[name].[chunkhash].css" }),
     new HtmlWebpackPlugin({
@@ -84,8 +86,5 @@ const config = {
   },
   resolve: { extensions: [".js", ".json", ".jsx", "*"] }
 };
-if (IS_DEV) {
-  config.plugins.push(new CleanObsoleteChunks());
-  config.plugins.push(new CleanWebpackPlugin(["dist/**/*.*"]));
-}
+
 module.exports = config;
