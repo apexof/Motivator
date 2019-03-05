@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const NODE_ENV = process.env.NODE_ENV || "development";
 const IS_DEV = NODE_ENV === "development";
 
-module.exports = {
+const config = {
   context: path.resolve(__dirname, "src"),
   entry: { index: "./index.jsx" },
   output: {
@@ -65,9 +65,7 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin(["NODE_ENV"]),
-    new CleanObsoleteChunks(),
     new MiniCssExtractPlugin({ filename: "css/[name].[chunkhash].css" }),
-    new CleanWebpackPlugin(["dist/**/*.*"]),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./index.html"
@@ -86,3 +84,8 @@ module.exports = {
   },
   resolve: { extensions: [".js", ".json", ".jsx", "*"] }
 };
+if (IS_DEV) {
+  config.plugins.push(new CleanObsoleteChunks());
+  config.plugins.push(new CleanWebpackPlugin(["dist/**/*.*"]));
+}
+module.exports = config;

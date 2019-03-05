@@ -4,6 +4,10 @@
   "description": "web service for cost accounting",
   "sasslintConfig": "./.sass-lint.yml",
   "main": "./dist/index.html",
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.8.0"
+  },
   "scripts": {
     "server": "nodemon server/server.js",
     "start": "node server/server.js",
