@@ -49,7 +49,7 @@ function Item({
             {moneyFormat(amount)}
           </p>
         </div>
-
+        {balance && <div title="Учитывается в общем балансе" className={style.gold} />}
         <DelItem
           sass={style.delButton}
           title={`Удаляя "${name}" вы хотите:`}

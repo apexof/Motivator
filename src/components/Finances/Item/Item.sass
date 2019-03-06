@@ -1,4 +1,5 @@
 $size: 7rem
+$gold: 10px
 .source
   display: inline-block
   padding: 10px 10px 0
@@ -36,6 +37,16 @@ $size: 7rem
   color: grey
 .delButton
   display: none
+.gold
+  position: absolute
+  top: -3px
+  left: -4px
+  width: $gold
+  height: $gold
+  cursor: pointer
+  background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #fff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%)
+  border-radius: $gold / 2
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .5)
 .pen
   position: absolute
   right: -4px
