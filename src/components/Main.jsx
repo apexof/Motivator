@@ -28,7 +28,7 @@ class Main extends React.Component {
     return (
       <div>
         <Route exact path="/" component={Home} />
-        <Route exact path="/demo" component={App} />
+        <Route exact path="/demo" render={() => <App qwe="demo" />} />
         <SecuredRoute
           exact
           path="/app"

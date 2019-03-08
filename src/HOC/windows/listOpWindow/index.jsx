@@ -10,7 +10,7 @@ export default (Item, List) => class listOpWindow extends MainWindow {
     state = { _id: null };
 
     openModal = _id => () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "hidden";
       this.setState({ showModal: true, _id });
     };
 

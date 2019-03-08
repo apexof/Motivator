@@ -12,12 +12,8 @@ export function moneyFormat(num) {
   if (!num) return num;
   let money = num.toString();
   money = separate(money);
-  money = textTrimmer(money, 9);
+  money = textTrimmer(money, 10);
   return money;
-}
-
-export function fixAccuracy(num) {
-  return +num.toFixed(10);
 }
 
 export function MMYY(date) {

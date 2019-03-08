@@ -15,7 +15,6 @@ class App extends React.Component {
   async componentDidMount() {
     const { getItems, getOps } = this.props;
     const userName = auth0.isAuth() ? auth0.getUser().name : "demo";
-
     const dbName = (await axios({
       method: "GET",
       headers: getHeaders(),

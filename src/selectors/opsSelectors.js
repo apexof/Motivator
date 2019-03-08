@@ -1,7 +1,9 @@
 import { createSelector } from "reselect";
 import { INCOMES, COSTS, WALLETS } from "../../constants";
-import { fixAccuracy, MMYY } from "../helpers";
+import { MMYY } from "../helpers";
 import { itemsByFinType } from "./finsSelectors";
+
+const { fixAccuracy } = require("../helpers/commonFuncs");
 
 const opsFromState = state => state.operations;
 const opsByFinId = ({ operations: ops }, { _id }) => ops.filter(op => op.from_id === _id || op.to_id === _id);

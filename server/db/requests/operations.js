@@ -1,6 +1,7 @@
 const { operations } = require("../../models/operationsModels");
 const { INCOMES, WALLETS, COSTS } = require("../../../constants");
 const { wallets } = require("../../models/financeModels");
+const { fixAccuracy } = require("../../../src/helpers/commonFuncs");
 
 function get_all_operations() {
   return operations.find().sort({ date: -1 });
@@ -67,7 +68,7 @@ function update_wallets(op, mode = "add", oldAmount) {
 function upd(_id, dif) {
   return wallets
     .findById(_id)
-    .then(({ amount }) => wallets.updateOne({ _id }, { amount: +(amount + dif).toFixed(10) }))
+    .then(({ amount }) => wallets.updateOne({ _id }, { amount: fixAccuracy(amount + dif) }))
     .then(() => wallets.findById(_id));
 }
 

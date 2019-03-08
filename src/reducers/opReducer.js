@@ -14,7 +14,9 @@ function opReducer(operations = [], { type, payload: data }) {
       const index = operations.findIndex(op => op._id === data.newOp._id);
       const begin = operations.slice(0, index);
       const end = operations.slice(index + 1);
-      return begin.concat(data.newOp, end);
+      const newOps = begin.concat(data.newOp, end);
+      newOps.sort((a, b) => new Date(b.date) - new Date(a.date));
+      return newOps;
     }
     case DELETE_OP: {
       return operations.filter(op => op._id !== data._id);

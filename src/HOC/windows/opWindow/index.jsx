@@ -12,7 +12,7 @@ export default (Button, Component) => class OpWindow extends MainWindow {
     };
 
     openModal = (from, to) => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "hidden";
       this.setState({
         showModal: true,
         from,
