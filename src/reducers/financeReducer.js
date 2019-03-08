@@ -2,6 +2,7 @@ import { GET_ITEMS,
   ADD_ITEM,
   ADD_OP,
   EDIT_ITEM,
+  EDIT_OP,
   DELETE_ITEM,
   DELETE_OP,
   UPDATE_ITEMS,
@@ -26,6 +27,7 @@ function financeReducer(finances = {}, { type, payload: data }) {
     }
     case ADD_OP:
     case DELETE_OP:
+    case EDIT_OP:
     case UPDATE_ITEMS: {
       return updateWallets(data.newItems, finances);
     }

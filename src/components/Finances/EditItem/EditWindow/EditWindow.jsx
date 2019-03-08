@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ColorPicker from "../../ColorPicker";
-import style from "./EditWindow.sass";
+import style from "../../AddItem/AddItem.sass";
 import Checkbox from "../../../CheckBox";
 import { fin, WALLETS } from "../../../../text";
 import { star } from "../../../App/sass/global.sass";
@@ -68,13 +68,14 @@ EditWindow.propTypes = {
   closeModal: PropTypes.func.isRequired,
   editItem: PropTypes.func.isRequired,
   color: PropTypes.string,
-  balance: PropTypes.bool.isRequired
+  balance: PropTypes.bool
 };
 
 EditWindow.defaultProps = {
   plan: 0,
   amount: null,
-  color: undefined
+  color: undefined,
+  balance: undefined
 };
 
 export default EditWindow;

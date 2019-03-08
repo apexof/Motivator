@@ -5,7 +5,7 @@ import style from "../windows.sass";
 
 ReactModal.setAppElement("#root");
 
-export default (Item, AddOp) => class addOpWindow extends MainWindow {
+export default (Button, Component) => class OpWindow extends MainWindow {
     state = {
       from: {},
       to: {}
@@ -23,7 +23,7 @@ export default (Item, AddOp) => class addOpWindow extends MainWindow {
     render() {
       return (
         <>
-          <Item {...this.props} openModal={this.openModal} />
+          <Button {...this.props} openModal={this.openModal} />
           <ReactModal
             isOpen={this.state.showModal}
             className={style.window}
@@ -31,10 +31,17 @@ export default (Item, AddOp) => class addOpWindow extends MainWindow {
             onRequestClose={this.closeModal}
             shouldCloseOnOverlayClick
           >
-            <span className={style.closeButton} onClick={this.closeModal}>
+            <span id="delButton" className={style.closeButton} onClick={this.closeModal}>
               ×
             </span>
-            <AddOp {...this.state} closeModal={this.closeModal} />
+            <Component
+              {...this.state}
+              amountOp={this.props.amountOp}
+              opId={this.props.opId}
+              tag={this.props.tag}
+              date={this.props.date}
+              closeModal={this.closeModal}
+            />
           </ReactModal>
         </>
       );

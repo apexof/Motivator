@@ -16,10 +16,20 @@ function add_operation(op) {
     .then(newOp => update_wallets(newOp).then(newItems => ({ newItems, newOp })));
 }
 
+function update_operation(op) {
+  return operations.findById(op._id).then(oldOp => operations
+    .updateOne({ _id: op._id }, op)
+    .then(() => operations.findById(op._id))
+    .then(newOp => update_wallets(newOp, "edit", oldOp.amount).then(newItems => ({
+      newItems,
+      newOp
+    }))));
+}
+
 function delete_operation(_id) {
   return operations
     .findById(_id)
-    .then(op => update_wallets(op, true))
+    .then(op => update_wallets(op, "del"))
     .then(newItems => operations.deleteOne({ _id }).then(() => newItems.filter(item => item)));
 }
 
@@ -34,9 +44,12 @@ function del_all_ops(_id) {
     });
 }
 
-function update_wallets(op, delMode = false) {
+function update_wallets(op, mode = "add", oldAmount) {
   const { from_type, from_id, to_type, to_id } = op;
-  const amount = delMode ? -op.amount : op.amount;
+  let amount;
+  if (mode === "add") amount = op.amount;
+  if (mode === "del") amount = -op.amount;
+  if (mode === "edit") amount = op.amount - oldAmount;
 
   if (to_type === COSTS) {
     return Promise.all([upd(from_id, -amount)]);
@@ -62,7 +75,7 @@ module.exports = {
   get_operations,
   get_all_operations,
   add_operation,
+  update_operation,
   delete_operation,
-  update_wallets,
   del_all_ops
 };

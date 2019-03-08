@@ -5,7 +5,7 @@ import { WALLETS } from "../../../../constants";
 
 import opWindow from "../../../HOC/windows/opWindow";
 import listOpWindow from "../../../HOC/windows/listOpWindow";
-import AddOp from "../../Operations/AddOp";
+import AddOp from "../../Operations/MakeOp";
 import ListOp from "../../Operations/ListOp";
 import { monthAmount } from "../../../selectors/opsSelectors";
 

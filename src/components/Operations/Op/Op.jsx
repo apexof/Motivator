@@ -5,55 +5,56 @@ import { INCOMES, COSTS } from "../../../../constants";
 import style from "./Op.sass";
 import colors from "../../App/sass/colors.sass";
 
-function Op({ _id, amount, from, to, delOp, from_type, to_type, tag }) {
+function Op(props) {
+  const { opId, amountOp, from, to, delOp, tag, openModal } = props;
   let prefix = " ";
   let colorClass;
-  if (from_type === INCOMES) {
+  if (from.type === INCOMES) {
     prefix = "+";
     colorClass = colors.greenText;
-  } else if (to_type === COSTS) {
+  } else if (to.type === COSTS) {
     prefix = "-";
     colorClass = colors.redText;
   }
 
   return (
     <div className={style.container}>
-      <span className={style.fromTo}>
-        <div title={from.name} className={colors[`${from_type}Text`]}>
-          {from.name}
-        </div>
-        <div title={to.name} className={colors[`${to_type}Text`]}>
-          {to.name}
-        </div>
-      </span>
-      <span title={tag} className={style.tag}>
-        {tag}
-      </span>
-      <span
-        title={`${prefix}${amount}`}
-        className={`${style.amount} ${colorClass}`}
-      >{`${prefix}${amount}`}
-      </span>
-      <DelItem sass={style.delButton} confirm={() => delOp(_id)} />
+      <div
+        title="Нажмите для редактирования операции"
+        onClick={() => openModal(from, to)}
+        className={style.opContainer}
+      >
+        <span className={style.fromTo}>
+          <span className={colors[`${from.type}Text`]}>{from.name}</span>
+          <br />
+          <span className={colors[`${to.type}Text`]}>{to.name}</span>
+        </span>
+        <span className={style.tag}>{tag}</span>
+        <span className={`${style.amount} ${colorClass}`}>{`${prefix}${amountOp}`}</span>
+      </div>
+      <DelItem sass={style.delButton} confirm={() => delOp(opId)} />
     </div>
   );
 }
 
 Op.propTypes = {
-  _id: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
+  opId: PropTypes.string.isRequired,
+  amountOp: PropTypes.number.isRequired,
   delOp: PropTypes.func.isRequired,
-  from: PropTypes.shape({ name: PropTypes.string }),
-  to: PropTypes.shape({ name: PropTypes.string }),
-  from_type: PropTypes.string.isRequired,
-  to_type: PropTypes.string.isRequired,
+  openModal: PropTypes.func.isRequired,
+  from: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired,
+  to: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired,
   tag: PropTypes.string
 };
 
-Op.defaultProps = {
-  from: { name: "" },
-  to: { name: "" },
-  tag: undefined
-};
+Op.defaultProps = { tag: undefined };
 
 export default Op;

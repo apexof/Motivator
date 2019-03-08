@@ -7,6 +7,7 @@
   },
   "rules": {
     "camelcase": 0,
+    "prefer-destructuring": 0,
     "no-case-declarations": 0,
     "react/destructuring-assignment": "never",
     "jsx-a11y/no-autofocus": 0,

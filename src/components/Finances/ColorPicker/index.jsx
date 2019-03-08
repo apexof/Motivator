@@ -13,6 +13,7 @@ class ColorPicker extends React.Component {
   render() {
     return (
       <div className={style.colorPicker}>
+        <p>Цвет для отчетов:</p>
         <CirclePicker
           width={220}
           color={this.state.color}
