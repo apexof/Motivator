@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Item from "./Item";
 
-const { INCOMES, WALLETS, COSTS } = require("../../../../constants");
+const { INCOMES, WALLETS, COSTS } = require("../../../../common/constants");
 
 function DragNDrop(props) {
   const { _id, type, openModal, dragEl, setDragEl, name, amount } = props;

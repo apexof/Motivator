@@ -1,4 +1,4 @@
-const { INCOMES, WALLETS, COSTS } = require("../../constants");
+const { INCOMES, WALLETS, COSTS } = require("../../common/constants");
 
 export {
   INCOMES, WALLETS, COSTS

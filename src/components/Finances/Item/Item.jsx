@@ -7,7 +7,7 @@ import colors from "../../App/sass/vars.sass";
 import EditItem from "../EditItem";
 import DelItem from "../DelItem";
 
-const { WALLETS, COSTS } = require("../../../../constants");
+const { WALLETS, COSTS } = require("../../../../common/constants");
 
 function Item({
   _id,

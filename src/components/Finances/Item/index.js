@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { deleteItem, disableItem, setDragEl } from "../../../AC";
 import Item from "./DragNDrop";
-import { WALLETS } from "../../../../constants";
+import { WALLETS } from "../../../../common/constants";
 
 import opWindow from "../../../HOC/windows/opWindow";
 import listOpWindow from "../../../HOC/windows/listOpWindow";

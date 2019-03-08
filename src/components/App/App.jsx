@@ -9,7 +9,7 @@ import Loading from "../Loading";
 import Charts from "../Charts";
 import auth0 from "../Auth/Auth";
 
-const { INCOMES, WALLETS, COSTS } = require("../../../constants");
+const { INCOMES, WALLETS, COSTS } = require("../../../common/constants");
 
 class App extends React.Component {
   async componentDidMount() {

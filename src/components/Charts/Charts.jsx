@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "./Slider";
 import style from "./Charts.sass";
-import { INCOMES, COSTS } from "../../../constants";
+import { INCOMES, COSTS } from "../../../common/constants";
 
 class Charts extends React.Component {
   state = { chartType: COSTS };

@@ -5,7 +5,7 @@ import DatePicker from "./DataPicker/DatePicker";
 import { star } from "../../App/sass/global.sass";
 import style from "./MakeOp.sass";
 
-const { WALLETS } = require("../../../../constants");
+const { WALLETS } = require("../../../../common/constants");
 
 function AddOp({ from, to, closeModal, makeOp, amountOp, opId, tag, date }) {
   const handleSubmit = (e) => {

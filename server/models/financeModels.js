@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { INCOMES, WALLETS, COSTS } = require("../../constants");
+const { INCOMES, WALLETS, COSTS } = require("../../common/constants");
 
 const incomes = mongoose.model(
   INCOMES,

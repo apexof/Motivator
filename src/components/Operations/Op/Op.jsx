@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import DelItem from "../../Finances/DelItem";
-import { INCOMES, COSTS } from "../../../../constants";
+import { INCOMES, COSTS } from "../../../../common/constants";
 import style from "./Op.sass";
 import colors from "../../App/sass/colors.sass";
 

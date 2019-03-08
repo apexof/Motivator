@@ -1,7 +1,7 @@
 const { operations } = require("../../models/operationsModels");
-const { INCOMES, WALLETS, COSTS } = require("../../../constants");
+const { INCOMES, WALLETS, COSTS } = require("../../../common/constants");
 const { wallets } = require("../../models/financeModels");
-const { fixAccuracy } = require("../../../src/helpers/commonFuncs");
+const { fixAccuracy } = require("../../../common/funcs");
 
 function get_all_operations() {
   return operations.find().sort({ date: -1 });
