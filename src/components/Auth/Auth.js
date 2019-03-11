@@ -41,9 +41,10 @@ class Auth {
     this.expiresAt = authResult.idTokenPayload.exp * 1000;
   }
 
-  signOut = () => {
+  signOut = (path) => {
+    const returnTo = path ? `${site}${path}` : site;
     this.auth0.logout({
-      returnTo: site,
+      returnTo,
       clientID
     });
   };

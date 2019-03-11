@@ -1,35 +1,40 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import { withRouter, Link } from "react-router-dom";
 import auth0 from "../Auth/Auth";
 import Balance from "./Balance";
 import style from "./Header.sass";
 
-function Header() {
+function Header({ home }) {
   const { isAuth, signIn, signOut, getUser } = auth0;
   return (
     <div className={style.header}>
       {!isAuth() && (
         <div>
           <div className={style.sign} onClick={signIn}>
-            Войти
+            Вход/регистрация
           </div>
-          <label className={style.demo}>Демо-аккаунт</label>
+          <Link to="/demo" className={style.demo}>
+            Демо-аккаунт
+          </Link>
         </div>
       )}
       {isAuth() && (
         <div>
-          <div className={style.sign} onClick={signOut}>
+          <div className={style.sign} onClick={() => signOut()}>
             Выйти
           </div>
           <label>{getUser().name}</label>
         </div>
       )}
-      <Balance />
+      {!home && <Balance />}
     </div>
   );
 }
 
-Header.propTypes = { history: PropTypes.shape({ replace: PropTypes.func.isRequired }).isRequired };
-
+Header.propTypes = {
+  history: PropTypes.shape({ replace: PropTypes.func.isRequired }).isRequired,
+  home: PropTypes.bool
+};
+Header.defaultProps = { home: false };
 export default withRouter(Header);

@@ -28,7 +28,14 @@ class Main extends React.Component {
     return (
       <div>
         <Route exact path="/" component={Home} />
-        <Route exact path="/demo" render={() => <App qwe="demo" />} />
+        <Route
+          exact
+          path="/demo"
+          render={() => {
+            if (auth0.isAuth()) auth0.signOut("/demo");
+            return <App />;
+          }}
+        />
         <SecuredRoute
           exact
           path="/app"

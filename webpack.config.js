@@ -13,7 +13,8 @@ const config = {
   entry: { index: "./index.jsx" },
   output: {
     filename: "[name].[chunkhash].js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
   },
   devtool: IS_DEV ? "inline-source-map" : false,
   mode: NODE_ENV,
@@ -60,7 +61,8 @@ const config = {
             outputPath: "img/"
           }
         }
-      }
+      },
+      { test: /\.(ico)$/i, loader: "file?name=[name].[ext]" }
     ]
   },
   plugins: [
@@ -70,7 +72,8 @@ const config = {
     new MiniCssExtractPlugin({ filename: "css/[name].[chunkhash].css" }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./index.html"
+      template: "./index.html",
+      favicon: "./favicon.ico"
     })
   ],
   optimization: {
