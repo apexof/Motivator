@@ -1,6 +1,4 @@
 import React from "react";
-// import motivator from "./motivator.png";
-import tree from "./money-tree.png";
 import style from "./Home.sass";
 import Header from "../Header/Header";
 
@@ -25,12 +23,17 @@ function Home() {
         </div>
       </div>
       <div className={style.footer}>
-        <p>Связаться с автором</p>
-        <p>Поблагодарить</p>
+        <nav className={style.contacts}>
+          <p>
+            <a className={style.navEl} href="https://vk.com/me6490490">
+              Связаться с автором
+            </a>
+          </p>
+          <p>
+            <span className={style.navEl}>Поблагодарить</span>
+          </p>
+        </nav>
       </div>
-      <div className={style.tree1} />
-      <div className={style.tree2} />
-      <div className={style.tree3} />
     </>
   );
 }
