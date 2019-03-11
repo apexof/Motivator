@@ -9,8 +9,7 @@ function Home() {
       <div>
         <h1 className={style.header}>MOTIVATOR</h1>
         <h2>Веб-сервис для учета личных финансов</h2>
-        {/* <img className={style.cat} src={motivator} alt="Кошка-копилка" /> */}
-        <div className={style.video}>
+        {/* <div className={style.video}>
           <iframe
             title="Видео"
             width={style.videoWidth}
@@ -20,7 +19,7 @@ function Home() {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-        </div>
+        </div> */}
       </div>
       <div className={style.footer}>
         <nav className={style.contacts}>
