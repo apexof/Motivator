@@ -9,17 +9,20 @@ function Home() {
       <div>
         <h1 className={style.header}>MOTIVATOR</h1>
         <h2>Веб-сервис для учета личных финансов</h2>
-        {/* <div className={style.video}>
+        <div className={style.video}>
           <iframe
             title="Видео"
             width={style.videoWidth}
             height="315"
-            src="https://www.youtube.com/embed/M1iXOfEhBOI"
+            src="https://www.youtube.com/embed/4Ex-6-w3Nnc"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-        </div> */}
+        </div>
+        <p className={style.learnVideo}>
+          Посмотрите видео чтобы узнать тонкости использования сервиса
+        </p>
       </div>
       <div className={style.footer}>
         <nav className={style.contacts}>
