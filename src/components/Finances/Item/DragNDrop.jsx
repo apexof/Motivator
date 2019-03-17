@@ -1,13 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Item from "./Item";
+import coin from "./coin.png";
 
 const { INCOMES, WALLETS, COSTS } = require("../../../../common/constants");
 
 function DragNDrop(props) {
   const { _id, type, openModal, dragEl, setDragEl, name, amount } = props;
+  const img = new Image();
+  img.src = coin;
+
   function dragStart(e) {
     if (type === COSTS || (amount <= 0 && type === WALLETS)) return e.preventDefault();
+    e.dataTransfer.setDragImage(img, 17, 17);
     setDragEl({
       _id,
       type,

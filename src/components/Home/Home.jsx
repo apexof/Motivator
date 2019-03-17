@@ -14,13 +14,15 @@ function Home() {
             title="Видео"
             width={style.videoWidth}
             height="315"
-            src="https://www.youtube.com/embed/fA9RGpOf27w"
+            src="https://www.youtube.com/embed/QSTPRGBx6_E"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </div>
-        <p className={style.learnVideo}>Посмотрите видео чтобы узнать что такое Motivator</p>
+        <p className={style.learnVideo}>
+          Посмотрите видео чтобы узнать тонкости использования сервиса
+        </p>
       </div>
       <div className={style.footer}>
         <nav className={style.contacts}>
