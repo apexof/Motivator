@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Home.sass";
 import Header from "../Header/Header";
+import Thank from "./Thank";
 
 function Home() {
   return (
@@ -37,9 +38,7 @@ function Home() {
               Связаться с автором
             </a>
           </p>
-          <p>
-            <span className={style.navEl}>Поблагодарить</span>
-          </p>
+          <Thank />
         </nav>
       </div>
     </div>

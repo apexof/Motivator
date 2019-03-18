@@ -3,9 +3,8 @@ import ReactModal from "react-modal";
 import style from "../windows.sass";
 import MainWindow from "../MainWindow";
 
-export default (Button, Component, div) => class ModalWindow extends MainWindow {
+export default (Button, Component) => class ModalWindow extends MainWindow {
   render() {
-    ReactModal.setAppElement(div);
     return (
       <>
         <Button {...this.props} openModal={this.openModal} />
