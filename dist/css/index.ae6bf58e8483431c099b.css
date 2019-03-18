@@ -3,13 +3,17 @@
   margin: 0; }
 
 html {
+  height: 100%;
   font-size: 10px; }
 
 body {
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-size: 1.4rem;
   line-height: 1.4;
   background-color: #efefef; }
+  body > div {
+    height: 100%; }
 
 ._2faHEvCuK2cBJ81oSwZZxD {
   display: flex;
@@ -692,26 +696,41 @@ form button {
   border-bottom: 1px dashed #b9b9b9;
   border-left: 1px dashed #b9b9b9; }
 
-._7EObQLKW3C0jm4By03poZ {
-  font-size: 14rem;
-  color: #1c2026;
-  text-align: center;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+._3oz5wFX_u30bvsR7h9lwFb {
+  position: relative;
+  min-width: 315px;
+  min-height: 100%; }
 
-._1NlmlHBsp_WLwoNqHgbQwY {
-  display: block;
-  width: 30%;
-  margin: 20px auto 0; }
-
-._2s27wW9zt_lp3bDue1yd8E {
-  width: 560px;
-  margin: 20px auto 0;
-  border: 1px solid #d3d3d3; }
-
-.isXBTfsoyMKUw_yKpinlF {
-  font-size: 1.5rem;
-  font-weight: 400;
-  text-align: center; }
+._3J-hwY0uKS6Q6UARM0OI_t {
+  padding-bottom: 250px; }
+  ._3J-hwY0uKS6Q6UARM0OI_t h1 {
+    font-size: 8vw;
+    line-height: 1;
+    color: #1c2026;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+  ._3J-hwY0uKS6Q6UARM0OI_t h2 {
+    width: 80%;
+    margin: 0 auto; }
+  ._3J-hwY0uKS6Q6UARM0OI_t ._2s27wW9zt_lp3bDue1yd8E {
+    width: 35vw;
+    height: 19vw;
+    margin: 20px auto 0;
+    border: 1px solid #d3d3d3; }
+  ._3J-hwY0uKS6Q6UARM0OI_t .isXBTfsoyMKUw_yKpinlF {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center; }
+  ._3J-hwY0uKS6Q6UARM0OI_t h3 {
+    width: 80%;
+    margin: 25px auto 0;
+    text-align: center; }
+  ._3J-hwY0uKS6Q6UARM0OI_t ._1HbbU3fF7Hf5HudZbn09E9 {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center; }
 
 .UldSSsUa52fooY25ZG_MY {
   position: absolute;
@@ -734,4 +753,13 @@ form button {
     cursor: pointer; }
     .UldSSsUa52fooY25ZG_MY ._2eGzBuD3IKMuOyPEwsCPez:hover {
       border-bottom: 1px dashed; }
+
+@media screen and (max-width: 750px) {
+  ._3J-hwY0uKS6Q6UARM0OI_t ._2s27wW9zt_lp3bDue1yd8E {
+    width: 75vw;
+    height: 42vw; }
+  ._3J-hwY0uKS6Q6UARM0OI_t h1 {
+    font-size: 12vw; }
+  ._3J-hwY0uKS6Q6UARM0OI_t ._1HbbU3fF7Hf5HudZbn09E9 {
+    width: 60%; } }
 

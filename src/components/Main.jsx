@@ -26,7 +26,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Route exact path="/" component={Home} />
         <Route
           exact
@@ -43,7 +43,7 @@ class Main extends React.Component {
           checkingSession={this.state.checkingSession}
         />
         <Route exact path="/callback" component={Callback} />
-      </div>
+      </>
     );
   }
 }

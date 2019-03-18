@@ -1,24 +1,38 @@
-$videoWidth: 560px
-@value videoWidth #{$videoWidth}
 @import '../App/sass/vars'
-
-.header
-  font-size: 14rem
-  color: $main
-  text-align: center
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .5)
-.cat
-  display: block
-  width: 30%
-  margin: 20px auto 0
-.video
-  width: $videoWidth
-  margin: 20px auto 0
-  border: 1px solid #d3d3d3
-.learnVideo
-  font-size: 1.5rem
-  font-weight: 400
-  text-align: center
+.container
+  position: relative
+  min-width: 315px
+  min-height: 100%
+.content
+  padding-bottom: 250px
+  h1
+    font-size: 8vw
+    line-height: 1
+    color: $main
+    text-align: center
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .5)
+  h2
+    width: 80%
+    margin: 0 auto
+  .video
+    width: 35vw
+    height: 19vw
+    margin: 20px auto 0
+    border: 1px solid #d3d3d3
+  .learnVideo
+    width: 80%
+    margin: 0 auto
+    font-size: 1.5rem
+    font-weight: 400
+    text-align: center
+  h3
+    width: 80%
+    margin: 25px auto 0
+    text-align: center
+  .why
+    width: 40%
+    margin: 0 auto
+    text-align: center
 .footer
   position: absolute
   bottom: 0
@@ -40,3 +54,14 @@ $videoWidth: 560px
     cursor: pointer
     &:hover
       border-bottom: 1px dashed
+
+@media screen and (max-width: 750px)
+  .content
+    .video
+      width: 75vw
+      height: 42vw
+    h1
+      font-size: 12vw
+    .why
+      width: 60%
+

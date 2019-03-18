@@ -4,16 +4,16 @@ import Header from "../Header/Header";
 
 function Home() {
   return (
-    <>
+    <div className={style.container}>
       <Header home />
-      <div>
-        <h1 className={style.header}>MOTIVATOR</h1>
+      <div className={style.content}>
+        <h1>MOTIVATOR</h1>
         <h2>Веб-сервис для учета личных финансов</h2>
         <div className={style.video}>
           <iframe
             title="Видео"
-            width={style.videoWidth}
-            height="315"
+            width="100%"
+            height="100%"
             src="https://www.youtube.com/embed/QSTPRGBx6_E"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -22,6 +22,12 @@ function Home() {
         </div>
         <p className={style.learnVideo}>
           Посмотрите видео чтобы узнать тонкости использования сервиса
+        </p>
+        <h3>Зачем вести учет финансов?</h3>
+        <p className={style.why}>
+          Систематическая запись всех расходов и доходов позволит провести анализ и выяснить куда
+          "исчезают" деньги и на чем можно сэкономить. Вы по другому начнете относится к деньгам, у
+          вас появится мотивация больше откладывать и меньше тратить.
         </p>
       </div>
       <div className={style.footer}>
@@ -36,7 +42,7 @@ function Home() {
           </p>
         </nav>
       </div>
-    </>
+    </div>
   );
 }
 
