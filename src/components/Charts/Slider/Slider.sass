@@ -1,3 +1,4 @@
+@import '../../App/sass/vars'
 .container
   width: 400px
   margin: 0 40px 50px
@@ -5,4 +6,11 @@
   font-size: 4rem
   color: #cecece
   text-align: center
+@media screen and (max-width: 1200px)
+  .container
+    width: 300px
+@media screen and (max-width: $chartsBP)
+  .container
+    width: 80vw
+    margin: 0 auto 50px
 

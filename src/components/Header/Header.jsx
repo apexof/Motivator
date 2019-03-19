@@ -28,6 +28,7 @@ function Header({ home }) {
         </div>
       )}
       {!home && <Balance />}
+      <div />
     </div>
   );
 }

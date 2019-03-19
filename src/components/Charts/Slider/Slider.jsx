@@ -7,7 +7,7 @@ import { MMYY } from "../../../helpers";
 
 const customStyle = `
   .slick-prev, .slick-next {
-    top: 200px;
+    top: calc(40%);
   }
   .slick-prev:before, .slick-next:before {
     color: #1c2026;

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "./balance.sass";
+import style from "../Header.sass";
 
 const { fixAccuracy } = require("../../../../common/funcs");
 

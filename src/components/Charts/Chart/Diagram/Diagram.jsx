@@ -23,8 +23,8 @@ function Diagram({ items }) {
           }
         ]
       }}
-      width={400}
-      height={400}
+      width={1}
+      height={1}
       options={{ legend: { display: false } }}
     />
   );
