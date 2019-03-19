@@ -38,7 +38,7 @@ function Item({
           data-type={type}
           className={style.round}
           style={bgc}
-          draggable="true"
+          draggable={type === COSTS || (amount <= 0 && type === WALLETS) ? undefined : true}
           onDragOver={dragOver}
           onDragStart={dragStart}
           onDrop={drop}

@@ -7,7 +7,7 @@ function AddButton({ openModal }) {
   return (
     <div className={style.source}>
       <div className={style.round} onClick={openModal}>
-        <img draggable="false" src={plus} alt="Добавить" />
+        <img className={style.addImg} src={plus} alt="Добавить" />
       </div>
       <div>Добавить</div>
     </div>

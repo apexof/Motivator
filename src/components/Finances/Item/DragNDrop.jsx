@@ -5,13 +5,19 @@ import coin from "./coin.png";
 
 const { INCOMES, WALLETS, COSTS } = require("../../../../common/constants");
 
+function checkValidOp(from, to) {
+  const incomeOp = from.type === INCOMES && to.type === WALLETS;
+  const internalOp = from.type === WALLETS && to.type === WALLETS && to._id !== from._id;
+  const expenseOp = from.type === WALLETS && to.type === COSTS;
+  return incomeOp || internalOp || expenseOp;
+}
+
 function DragNDrop(props) {
   const { _id, type, openModal, dragEl, setDragEl, name, amount } = props;
   const img = new Image();
   img.src = coin;
 
   function dragStart(e) {
-    if (type === COSTS || (amount <= 0 && type === WALLETS)) return e.preventDefault();
     e.dataTransfer.setDragImage(img, 17, 17);
     setDragEl({
       _id,
@@ -22,9 +28,7 @@ function DragNDrop(props) {
   }
 
   function dragOver(e) {
-    if (dragEl.type === INCOMES && type === WALLETS) return e.preventDefault();
-    if (dragEl.type === WALLETS && type === COSTS) return e.preventDefault();
-    if (dragEl.type === WALLETS && type === WALLETS && _id !== dragEl._id) return e.preventDefault();
+    if (checkValidOp(dragEl, { type, _id })) return e.preventDefault();
   }
 
   function drop(e) {
@@ -34,7 +38,9 @@ function DragNDrop(props) {
       type: elem.getAttribute("data-type"),
       name: elem.parentElement.nextElementSibling.title
     };
-    openModal(dragEl, to);
+    if (checkValidOp(dragEl, to)) openModal(dragEl, to);
+
+    setDragEl({});
     e.dataTransfer.clearData();
   }
   const funcs = {

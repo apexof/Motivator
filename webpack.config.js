@@ -67,7 +67,7 @@ const config = {
   },
   plugins: [
     new CleanObsoleteChunks(),
-    new CleanWebpackPlugin(["dist/**/*.*"]),
+    new CleanWebpackPlugin(["dist"], { exclude: ["static"] }),
     new webpack.EnvironmentPlugin(["NODE_ENV"]),
     new MiniCssExtractPlugin({ filename: "css/[name].[chunkhash].css" }),
     new HtmlWebpackPlugin({
