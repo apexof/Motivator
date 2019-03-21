@@ -1,15 +1,16 @@
 import React from "react";
+import { bodyScroll } from "../../helpers";
 
 class MainWindow extends React.Component {
   state = { showModal: false };
 
   openModal = () => {
-    document.body.style.overflow = "hidden";
+    bodyScroll(false);
     this.setState({ showModal: true });
   };
 
   closeModal = () => {
-    document.body.style.overflow = "auto";
+    bodyScroll(true);
     this.setState({ showModal: false });
   };
 }

@@ -61,8 +61,7 @@ const config = {
             outputPath: "img/"
           }
         }
-      },
-      { test: /\.(ico)$/i, loader: "file?name=[name].[ext]" }
+      }
     ]
   },
   plugins: [
@@ -72,8 +71,7 @@ const config = {
     new MiniCssExtractPlugin({ filename: "css/[name].[chunkhash].css" }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./index.html",
-      favicon: "./favicon.ico"
+      template: "./index.html"
     })
   ],
   optimization: {

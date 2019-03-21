@@ -1,0 +1,47 @@
+@import '../../App/sass/vars'
+.menuBlock
+  white-space: nowrap
+  cursor: pointer
+  .menuButton
+    width: 32px
+    margin-left: 5px
+    vertical-align: middle
+    cursor: pointer
+  .userName, .demo
+    margin-left: 10px
+    font-size: 1.5rem
+    vertical-align: middle
+    cursor: pointer
+  .demo
+    font-size: 1.6rem
+    font-weight: 700
+    color: #ff2a2a
+.menuList
+  position: absolute
+  top: $headerH + 2
+  bottom: 100%
+  left: 2px
+  z-index: 2
+  overflow: hidden
+  background-color: $main
+  transition: bottom .5s ease
+  &.menuShow
+    bottom: auto
+    border: 1px solid #858585
+    box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, .5)
+  .menuEl
+    display: block
+    padding: 10px 20px
+    margin: 0
+    font-size: 1.5rem
+    color: $lightText
+    text-decoration: none
+    cursor: pointer
+    border-bottom: 1px solid #b2b2b2
+    &:hover
+      background-color: lighten($main, 6.25%)
+  .activeEL
+    background-color: lighten($main, 6.25%)
+@media screen and (max-width: 400px)
+  .userName
+    display: none

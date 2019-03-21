@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import style from "./InfoList.sass";
 import InfoItem from "../InfoItem";
 
+const { fixAccuracy } = require("../../../../../common/funcs");
+
 function Info({ items, month, period }) {
   let summ = 0;
   const lines = items.map((item) => {
@@ -17,7 +19,7 @@ function Info({ items, month, period }) {
       {lines}
       <div className={style.summ}>
         <span>Сумма: </span>
-        <span>{summ}</span>
+        <span>{fixAccuracy(summ)}</span>
       </div>
     </div>
   );

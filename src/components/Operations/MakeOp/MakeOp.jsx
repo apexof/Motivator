@@ -16,7 +16,7 @@ function AddOp({ from, to, closeModal, makeOp, amountOp, opId, tag, date }) {
   };
   return (
     <div>
-      <h2>Создание денежной операции</h2>
+      <h2>{amountOp ? "Редактирование денежной операции" : "Создание денежной операции"}</h2>
       <Breadcrumbs from={from} to={to} />
       <form onSubmit={handleSubmit} autoComplete="off">
         <div className={style.container}>
@@ -35,7 +35,9 @@ function AddOp({ from, to, closeModal, makeOp, amountOp, opId, tag, date }) {
               name="amount"
               defaultValue={amountOp}
               min="0.01"
-              max={from.type === WALLETS && from.amount > 0 ? from.amount : undefined}
+              max={
+                from.type === WALLETS && from.amount > 0 ? from.amount + (amountOp || 0) : undefined
+              }
               autoFocus
               required
             />

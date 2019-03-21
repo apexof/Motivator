@@ -9,7 +9,7 @@ function Balance({ wallets }) {
   if (wallets.length) {
     summ = wallets.reduce((prev, cur) => (cur.balance ? prev + cur.amount : prev), 0);
   }
-  return <div className={style.balance}>Общий баланс: {fixAccuracy(summ)}</div>;
+  return <div className={style.balance}>Баланс: {fixAccuracy(summ)}</div>;
 }
 
 Balance.propTypes = { wallets: PropTypes.instanceOf(Array).isRequired };

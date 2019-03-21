@@ -1,17 +1,8 @@
 @import '../App/sass/vars'
-.hidden
-  height: 0
-  overflow: hidden
-// .container
-
-.hideButton
-  position: absolute
-  top: 3px
-  right: 6px
-  color: #fff
-  cursor: pointer
-  img
-    width: 34px
+div
+  &.hidden
+    height: 0
+    overflow: hidden
 .chartsHeader
   background-color: #1c2026
 .chartType
@@ -38,8 +29,10 @@
   align-items: center
   min-height: 500px
   padding: 10px
+  background-color: $mainBgc
   border: 1px dashed #b9b9b9
   border-top: 0
+
 
 @media screen and (max-width: $chartsBP)
   .container
@@ -49,6 +42,4 @@
     bottom: 0
     left: 0
     background-color: $mainBgc
-  .hidden
-    left: 100%
 
