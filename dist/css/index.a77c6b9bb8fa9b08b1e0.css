@@ -508,6 +508,16 @@ form button {
   position: relative;
   margin: 0 auto; }
 
+.fZd3J9iZkxkfL_mLCj8z2 {
+  position: absolute;
+  top: -3px;
+  padding: 5px 10px;
+  background-color: grey; }
+  .fZd3J9iZkxkfL_mLCj8z2:first-child {
+    left: 0; }
+  .fZd3J9iZkxkfL_mLCj8z2:last-child {
+    right: 0; }
+
 ._3D7tiLMyfLD1cwct-HMcsf {
   display: flex;
   align-items: center;

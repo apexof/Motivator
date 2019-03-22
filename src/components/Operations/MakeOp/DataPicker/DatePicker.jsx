@@ -4,11 +4,15 @@ import PropTypes from "prop-types";
 import MomentLocaleUtils, { formatDate } from "react-day-picker/moment";
 import "react-day-picker/lib/style.css";
 import style from "../MakeOp.sass";
+import Navbar from "./NavBar";
 import "moment/locale/ru";
 
 const customStyle = `
 .DayPicker { 
   font-size: 1.4rem; 
+}
+.DayPicker-Caption>div { 
+  text-align: center;
 }
 div.DayPickerInput-OverlayWrapper { 
   top: -25px;
@@ -37,10 +41,12 @@ class DatePick extends React.Component {
           format="LL"
           onDayChange={this.handleChange}
           value={this.state.selectedDay}
+          inputProps={{ readOnly: true }}
           dayPickerProps={{
             selectedDays: this.state.selectedDay,
             locale: "ru",
-            localeUtils: MomentLocaleUtils
+            localeUtils: MomentLocaleUtils,
+            navbarElement: <Navbar />
           }}
         />
       </div>
