@@ -25,7 +25,7 @@ function AddOp({ from, to, closeModal, makeOp, amountOp, opId, tag, date }) {
           <input type="hidden" name="to_id" value={to._id} />
           <input type="hidden" name="from_type" value={from.type} />
           <input type="hidden" name="to_type" value={to.type} />
-          <div>
+          <div className={style.fields}>
             <p>
               <span className={star}>* </span>Сумма операции:
             </p>
@@ -43,9 +43,8 @@ function AddOp({ from, to, closeModal, makeOp, amountOp, opId, tag, date }) {
             />
             <p>Тэг:</p>
             <input type="text" name="tag" defaultValue={tag} />
+            <DatePicker date={date} />
           </div>
-
-          <DatePicker date={date} />
         </div>
 
         <button type="submit">Сохранить</button>

@@ -3,6 +3,9 @@ import { apiMiddleware } from "redux-api-middleware";
 import reducer from "../reducers";
 import { isMobile } from "../helpers";
 
+window.addEventListener("orientationchange", () => {
+  console.log("ori");
+});
 const state = {
   finances: {
     incomes: [],

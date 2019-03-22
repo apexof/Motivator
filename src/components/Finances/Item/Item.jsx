@@ -36,7 +36,7 @@ function Item({
       <div className={style.roundContainer}>
         <div
           data-type={type}
-          className={style.round}
+          className={`${style.round} ${type !== COSTS && style.noTouchScroll}`}
           style={bgc}
           draggable={type === COSTS || (amount <= 0 && type === WALLETS) ? undefined : true}
           onDragOver={dragOver}

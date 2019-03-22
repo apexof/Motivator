@@ -19,7 +19,7 @@ function EditWindow({ _id, name, plan, amount, type, editItem, closeModal, color
       <h2>{fin[type].editWindowTitle}</h2>
       <form onSubmit={handleSubmit} autoComplete="off">
         <div className={style.container}>
-          <div>
+          <div className={style.fields}>
             <input type="hidden" name="_id" value={_id} />
             <p>
               <span className={star}>* </span>Название:
@@ -49,8 +49,8 @@ function EditWindow({ _id, name, plan, amount, type, editItem, closeModal, color
                 </div>
               </>
             )}
+            {!isWallets && <ColorPicker color={color} />}
           </div>
-          {!isWallets && <ColorPicker color={color} />}
         </div>
 
         <button type="submit">Сохранить</button>

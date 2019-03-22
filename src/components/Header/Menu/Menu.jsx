@@ -21,7 +21,10 @@ class Menu extends Component {
         <div className={style.menuBlock} onClick={this.toggleMenu}>
           <img className={style.menuButton} src={menu_icon} alt="menu" />
           {isAuth() && (
-            <label title={getUser().name} className={style.userName}>
+            <label
+              title={getUser().name}
+              className={`${style.userName} ${path === "/app" && style.dn}`}
+            >
               {textTrimmer(getUser().name, 12)}
             </label>
           )}

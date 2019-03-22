@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import style from "./sass/global.sass";
+import style from "./App.sass";
 import Finances from "../Finances";
 import { getHeaders } from "../../AC";
 import Header from "../Header/Header";
@@ -34,8 +34,8 @@ class App extends React.Component {
       <>
         {this.props.loading && <Loading />}
         <Header />
-        <div className={style.finances}>
-          <div>
+        <div className={style.content}>
+          <div className={style.finances}>
             <Finances type={INCOMES} />
             <Finances type={WALLETS} />
             <Finances type={COSTS} />

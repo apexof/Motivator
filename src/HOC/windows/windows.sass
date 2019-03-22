@@ -27,3 +27,17 @@
   font-weight: bold
   color: #fff
   cursor: pointer
+@media screen and (max-width: $chartsBP)
+  .window
+    width: 99%
+    height: 99%
+    overflow: scroll
+    box-sizing: border-box
+    &::-webkit-scrollbar
+      display: none
+  .overlay
+    background-color: rgba(166, 166, 166, .7)
+  .closeButton
+    top: -3px
+    right: 10px
+    color: $main

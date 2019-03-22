@@ -1,5 +1,5 @@
 import React from "react";
-import { CirclePicker } from "react-color";
+import { HuePicker } from "react-color";
 import PropTypes from "prop-types";
 import style from "./ColorPicker.sass";
 
@@ -14,7 +14,7 @@ class ColorPicker extends React.Component {
     return (
       <div className={style.colorPicker}>
         <p>Цвет для отчетов:</p>
-        <CirclePicker
+        <HuePicker
           width={220}
           color={this.state.color}
           onChangeComplete={this.handleChangeComplete}

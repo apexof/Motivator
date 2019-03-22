@@ -19,7 +19,7 @@ function WindowContent({ addItem, closeModal, type }) {
       <h2>{fin[type].addWindowTitle}</h2>
       <form onSubmit={handleSubmit} autoComplete="off">
         <div className={style.container}>
-          <div>
+          <div className={style.fields}>
             <p>
               <span className={star}>* </span>Название:
             </p>
@@ -42,8 +42,8 @@ function WindowContent({ addItem, closeModal, type }) {
                 </div>
               </div>
             )}
+            {!isWallets && <ColorPicker />}
           </div>
-          {!isWallets && <ColorPicker />}
         </div>
 
         <button type="submit">Создать</button>
