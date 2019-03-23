@@ -16,31 +16,33 @@ class Charts extends React.Component {
 
   render() {
     return (
-      <div className={`${style.container} ${this.props.hiddenCharts && style.hidden}`}>
-        <div className={style.chartsHeader}>
-          <div
-            className={`
+      !this.props.hiddenCharts && (
+        <div className={style.container}>
+          <div className={style.chartsHeader}>
+            <div
+              className={`
               ${style.chartType} 
               ${this.state.chartType === COSTS && style.active}
             `}
-            onClick={this.showCostsCharts}
-          >
-            Расходы
-          </div>
-          <div
-            className={`
+              onClick={this.showCostsCharts}
+            >
+              Расходы
+            </div>
+            <div
+              className={`
               ${style.chartType} 
               ${this.state.chartType === INCOMES && style.active}
             `}
-            onClick={this.showIncomesCharts}
-          >
-            Доходы
+              onClick={this.showIncomesCharts}
+            >
+              Доходы
+            </div>
+          </div>
+          <div className={style.charts}>
+            <Slider type={this.state.chartType} />
           </div>
         </div>
-        <div className={style.charts}>
-          <Slider type={this.state.chartType} />
-        </div>
-      </div>
+      )
     );
   }
 }

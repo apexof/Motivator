@@ -1,5 +1,10 @@
+@import './sass/vars'
 .content
   display: flex
   justify-content: space-between
 .finances
   font-size: inherit
+@media screen and (max-width: $chartsBP)
+  .finances
+    width: 100%
+    overflow: hidden

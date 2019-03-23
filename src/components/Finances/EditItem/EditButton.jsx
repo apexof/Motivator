@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import pen from "./pen.png";
 import style from "../Item/Item.sass";
+import { touchDevice } from "../../../helpers";
 
 function EditButton({ openModal }) {
   return (
@@ -11,7 +12,7 @@ function EditButton({ openModal }) {
       className={style.pen}
       onClick={openModal}
       title="Редактировать"
-      draggable={false}
+      draggable={touchDevice() ? undefined : false}
     />
   );
 }

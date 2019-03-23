@@ -5,14 +5,12 @@ function Navbar({ onPreviousClick, onNextClick, className }) {
   return (
     <div className={className}>
       <div
-        tabIndex="0"
-        className="DayPicker-NavButton DayPicker-NavButton--prev"
+        className={`DayPicker-NavButton DayPicker-NavButton--prev ${style.button}`}
         onClick={() => onPreviousClick()}
       />
 
       <div
-        tabIndex="0"
-        className="DayPicker-NavButton DayPicker-NavButton--next"
+        className={`DayPicker-NavButton DayPicker-NavButton--next ${style.button}`}
         onClick={() => onNextClick()}
       />
     </div>

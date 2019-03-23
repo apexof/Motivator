@@ -1,3 +1,4 @@
+@import '../../App/sass/vars'
 $size: 8rem
 $gold: 10px
 .source
@@ -6,9 +7,7 @@ $gold: 10px
   text-align: center
   vertical-align: top
   &:hover
-    .delButton
-      display: block
-    .pen
+    .delButton, .pen
       display: block
 .roundContainer
   position: relative
@@ -55,3 +54,8 @@ $gold: 10px
   cursor: pointer
 .noTouchScroll
   touch-action: none
+@media screen and (max-width: $chartsBP)
+  .source
+    padding: 5px 5px 0
+    .delButton, .pen
+      display: block

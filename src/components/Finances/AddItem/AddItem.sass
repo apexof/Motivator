@@ -1,4 +1,4 @@
-
+@import '../../App/sass/vars'
 $size: 8rem
 .source
   display: inline-block
@@ -22,7 +22,9 @@ $size: 8rem
   margin-bottom: 10px
 .container
   display: flex
-.addImg
-  pointer-events: none
 .fields
   margin: 0 auto
+@media screen and (max-width: $chartsBP)
+  .source
+    margin: 5px 5px 0
+    // display: none

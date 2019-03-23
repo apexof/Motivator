@@ -1,5 +1,20 @@
+@import '../../App/sass/vars'
 .container
   margin: 0 0 10px 10px
   .title
     margin-bottom: 5px
     text-align: left
+@media screen and (max-width: $chartsBP)
+  .container
+    margin: 0
+    .title
+      margin: 0 0 0 10px
+      font-size: 1.8rem
+      text-align: left
+    &:not(:last-child)
+      .items
+        overflow-x: scroll
+        white-space: nowrap
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2)
+        &::-webkit-scrollbar
+          display: none
