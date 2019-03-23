@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import LongPress from "react-long";
 import { fin } from "../../../text";
-import { textTrimmer, moneyFormat, separate } from "../../../helpers";
+import { textTrimmer, moneyFormat, separate, touchDevice } from "../../../helpers";
 import style from "./Item.sass";
 import colors from "../../App/sass/vars.sass";
 import EditItem from "../EditItem";
@@ -9,20 +10,20 @@ import DelItem from "../DelItem";
 
 const { WALLETS, COSTS } = require("../../../../common/constants");
 
-function Item({
-  _id,
-  type,
-  name,
-  amount,
-  holdWallets,
-  plan,
-  deleteItem,
-  disableItem,
-  openListOp,
-  funcs,
-  color,
-  balance
-}) {
+function Item(props) {
+  const {
+    _id,
+    type,
+    name,
+    amount,
+    holdWallets,
+    plan,
+    deleteItem,
+    disableItem,
+    openListOp,
+    funcs,
+    balance
+  } = props;
   const { dragStart, dragOver, drop } = funcs;
   const monthSumm = type === WALLETS ? holdWallets : amount;
   const progress = !plan ? 100 : (monthSumm / plan) * 100;
@@ -34,22 +35,30 @@ function Item({
   return (
     <div className={style.source}>
       <div className={style.roundContainer}>
-        <div
-          data-type={type}
-          className={`${style.round} ${type !== COSTS && style.noTouchScroll}`}
-          style={bgc}
-          draggable={type === COSTS || (amount <= 0 && type === WALLETS) ? undefined : true}
-          onDragOver={dragOver}
-          onDragStart={dragStart}
-          onDrop={drop}
-          onClick={openListOp(_id)}
-          title={type === WALLETS && amount === 0 ? fin[type].notDraggable : fin[type].round}
-        >
-          <p className={style.amount} title={`${fin[type].amount} ${separate(amount)}`}>
-            {moneyFormat(amount)}
-          </p>
-        </div>
-        {balance && <div title="Учитывается в общем балансе" className={style.gold} />}
+        <LongPress time={1000} onLongPress={() => alert("asd")}>
+          <div
+            data-type={type}
+            className={`${style.round} ${type !== COSTS && style.noTouchScroll}`}
+            style={bgc}
+            draggable={type === COSTS || (amount <= 0 && type === WALLETS) ? undefined : true}
+            onDragOver={dragOver}
+            onDragStart={dragStart}
+            onDrop={drop}
+            onClick={openListOp(_id)}
+            title={type === WALLETS && amount === 0 ? fin[type].notDraggable : fin[type].round}
+          >
+            <p className={style.amount} title={`${fin[type].amount} ${separate(amount)}`}>
+              {moneyFormat(amount)}
+            </p>
+          </div>
+        </LongPress>
+        {balance && (
+          <div
+            draggable={touchDevice() ? undefined : false}
+            title="Учитывается в общем балансе"
+            className={style.gold}
+          />
+        )}
         <DelItem
           sass={style.delButton}
           title={`Удаляя "${name}" вы хотите:`}
@@ -58,15 +67,7 @@ function Item({
           cancelText="Удалить только иконку"
           cancel={() => disableItem(_id, type)}
         />
-        <EditItem
-          _id={_id}
-          name={name}
-          plan={plan}
-          amount={amount}
-          type={type}
-          color={color}
-          balance={balance}
-        />
+        <EditItem {...props} />
       </div>
       <p
         title={name}
@@ -80,6 +81,7 @@ function Item({
         title={`${fin[type].plan} ${separate(plan)}`}
         style={planColor}
         onDragOver={e => e.preventDefault()}
+        className={style.plan}
       >
         {moneyFormat(plan)}
       </small>

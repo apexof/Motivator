@@ -1,6 +1,11 @@
 @import '../../App/sass/vars'
 $size: 8rem
 $gold: 10px
+.plan, .delButton, .name, .amount, .pen
+  user-select: none
+.round
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  -webkit-tap-highlight-color: transparent
 .source
   display: inline-block
   padding: 10px 10px 0
@@ -54,8 +59,8 @@ $gold: 10px
   cursor: pointer
 .noTouchScroll
   touch-action: none
+.db
+  display: block
 @media screen and (max-width: $chartsBP)
   .source
     padding: 5px 5px 0
-    .delButton, .pen
-      display: block
