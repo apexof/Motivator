@@ -16,7 +16,7 @@ const config = {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/"
   },
-  devtool: IS_DEV ? "inline-source-map" : false,
+  devtool: IS_DEV ? "source-map" : false,
   mode: NODE_ENV,
   watch: IS_DEV,
   module: {
@@ -76,11 +76,17 @@ const config = {
   ],
   optimization: {
     splitChunks: {
+      // cacheGroups: {
+      //   commons: {
+      //     name: "libs",
+      //     chunks: "all",
+      //     minChunks: 1
+      //   },
       cacheGroups: {
         commons: {
+          test: /[\\/]node_modules[\\/]/,
           name: "libs",
-          chunks: "all",
-          minChunks: 2
+          chunks: "all"
         }
       }
     }

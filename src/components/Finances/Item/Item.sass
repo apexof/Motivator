@@ -1,19 +1,15 @@
 @import '../../App/sass/vars'
+@import './shaked'
+
 $size: 8rem
 $gold: 10px
 .plan, .delButton, .name, .amount, .pen
   user-select: none
-.round
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-  -webkit-tap-highlight-color: transparent
 .source
   display: inline-block
-  padding: 10px 10px 0
+  padding: 5px 5px 0
   text-align: center
   vertical-align: top
-  &:hover
-    .delButton, .pen
-      display: block
 .roundContainer
   position: relative
   display: inline-block
@@ -31,6 +27,8 @@ $gold: 10px
   border-radius: $size / 2
   box-shadow: 2px 1px 1px 0 rgba(0, 0, 0, .5)
   box-sizing: border-box
+  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
   .amount
     margin: 0
     font-size: 1.4rem
@@ -61,6 +59,9 @@ $gold: 10px
   touch-action: none
 .db
   display: block
-@media screen and (max-width: $chartsBP)
+@media screen and (min-width: $chartsBP)
   .source
-    padding: 5px 5px 0
+    padding: 10px 10px 0
+    &:hover
+      .delButton, .pen
+        display: block
