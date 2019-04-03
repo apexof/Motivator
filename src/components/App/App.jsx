@@ -13,6 +13,7 @@ const { INCOMES, WALLETS, COSTS } = require("../../../common/constants");
 
 class App extends React.Component {
   async componentDidMount() {
+    window.scrollTo(0, 0);
     const { getItems, getOps } = this.props;
     const userName = auth0.isAuth() ? auth0.getUser().name : "demo";
     const dbName = (await axios({

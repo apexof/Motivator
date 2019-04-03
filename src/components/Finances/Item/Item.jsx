@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import LongPress from "react-long";
 import { fin } from "../../../text";
-import { textTrimmer, moneyFormat, separate, touchDevice } from "../../../helpers";
+import { textTrimmer, moneyFormat, separate, touchDevice, vibrate } from "../../../helpers";
 import style from "./Item.sass";
 import colors from "../../App/sass/vars.sass";
 import EditItem from "../EditItem";
@@ -13,9 +13,15 @@ const { WALLETS, COSTS } = require("../../../../common/constants");
 class Item extends React.Component {
   state = { shaked: false };
 
+  componentDidMount() {
+    document.body.addEventListener("click", this.stopShake);
+  }
+
   letShake = () => {
+    const e = new Event("click");
+    document.body.dispatchEvent(e);
     this.setState({ shaked: true });
-    if ("vibrate" in navigator) window.navigator.vibrate(200);
+    vibrate(200);
   };
 
   stopShake = () => {
@@ -23,7 +29,6 @@ class Item extends React.Component {
   };
 
   render() {
-    window.addEventListener("click", this.stopShake);
     const {
       _id,
       type,
@@ -49,7 +54,7 @@ class Item extends React.Component {
     const planColor = { color: progress >= 100 ? fulfilled : colors.grey };
     return (
       <LongPress time={700} onLongPress={this.letShake}>
-        <div className={style.source}>
+        <div className={`${style.source} ${!touchDevice() && style.dbHover}`}>
           <div className={style.roundContainer}>
             <div
               data-type={type}

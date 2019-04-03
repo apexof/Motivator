@@ -9,11 +9,20 @@ import { textTrimmer } from "../../../helpers";
 class Menu extends Component {
   state = { hidden: true };
 
+  componentDidMount() {
+    document.body.addEventListener("click", this.hideMenu);
+  }
+
+  hideMenu = () => {
+    if (!this.state.hidden) this.setState({ hidden: true });
+  };
+
   toggleMenu = () => {
     this.setState(state => ({ hidden: !state.hidden }));
   };
 
   render() {
+    console.log("ren");
     const { isAuth, signIn, signOut, getUser } = auth0;
     const path = this.props.location.pathname;
     return (

@@ -7,7 +7,7 @@ $gold: 10px
   user-select: none
 .source
   display: inline-block
-  padding: 5px 5px 0
+  padding: 10px 10px 0
   text-align: center
   vertical-align: top
 .roundContainer
@@ -59,9 +59,10 @@ $gold: 10px
   touch-action: none
 .db
   display: block
-@media screen and (min-width: $chartsBP)
+.dbHover
+  &:hover
+    .delButton, .pen
+      display: block
+@media screen and (max-width: $chartsBP)
   .source
-    padding: 10px 10px 0
-    &:hover
-      .delButton, .pen
-        display: block
+    padding: 5px 5px 0
