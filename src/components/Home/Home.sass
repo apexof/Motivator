@@ -1,10 +1,11 @@
 @import '../App/sass/vars'
+$greenButton: #3ab575
 .container
   position: relative
   min-width: 315px
   min-height: 100%
 .content
-  padding-bottom: 250px
+  padding-bottom: 200px
   h1
     font-size: 8vw
     line-height: 1
@@ -33,6 +34,39 @@
     width: 40%
     margin: 0 auto
     text-align: center
+  .buttonContainer
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    width: 90%
+    margin: 40px auto 0
+    div
+      padding: 15px
+      margin-bottom: 20px
+      font-weight: 600
+      white-space: nowrap
+      cursor: pointer
+      border-radius: 3px
+      transition: .2s
+      a
+        color: white
+        text-decoration: none
+    .letsGo
+      background: $greenButton
+      box-shadow: 0 -3px darken($greenButton, 7%) inset
+      &:hover
+        background: darken($greenButton, 7%)
+      &:active
+        background: darken($greenButton, 15%)
+        box-shadow: 0 3px darken($greenButton, 15%) inset
+    .demo
+      background-color: $red
+      box-shadow: 0 -3px darken($red, 7%) inset
+      &:hover
+        background: darken($red, 7%)
+      &:active
+        background: darken($red, 15%)
+        box-shadow: 0 3px darken($red, 15%) inset
 .footer
   position: absolute
   bottom: 0

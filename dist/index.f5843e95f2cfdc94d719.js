@@ -3665,10 +3665,12 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkAQAAAADJ
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Home_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.sass */ "./components/Home/Home.sass");
-/* harmony import */ var _Home_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Home_sass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Header/Header */ "./components/Header/Header.jsx");
-/* harmony import */ var _Thank__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Thank */ "./components/Home/Thank.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "../node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _Home_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.sass */ "./components/Home/Home.sass");
+/* harmony import */ var _Home_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Home_sass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Header/Header */ "./components/Header/Header.jsx");
+/* harmony import */ var _Thank__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Thank */ "./components/Home/Thank.jsx");
+
 
 
 
@@ -3676,13 +3678,13 @@ __webpack_require__.r(__webpack_exports__);
 
 function Home() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.container
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.container
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     home: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.content
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.content
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "MOTIVATOR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "\u0412\u0435\u0431-\u0441\u0435\u0440\u0432\u0438\u0441 \u0434\u043B\u044F \u0443\u0447\u0435\u0442\u0430 \u043B\u0438\u0447\u043D\u044B\u0445 \u0444\u0438\u043D\u0430\u043D\u0441\u043E\u0432"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.video
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.video
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
     title: "\u0412\u0438\u0434\u0435\u043E",
     width: "100%",
@@ -3692,20 +3694,30 @@ function Home() {
     allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
     allowFullScreen: true
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.learnVideo
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.learnVideo
   }, "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0432\u0438\u0434\u0435\u043E \u0447\u0442\u043E\u0431\u044B \u0443\u0437\u043D\u0430\u0442\u044C \u0442\u043E\u043D\u043A\u043E\u0441\u0442\u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0441\u0435\u0440\u0432\u0438\u0441\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "\u0417\u0430\u0447\u0435\u043C \u0432\u0435\u0441\u0442\u0438 \u0443\u0447\u0435\u0442 \u0444\u0438\u043D\u0430\u043D\u0441\u043E\u0432?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.why
-  }, "\u0421\u0438\u0441\u0442\u0435\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u0437\u0430\u043F\u0438\u0441\u044C \u0432\u0441\u0435\u0445 \u0440\u0430\u0441\u0445\u043E\u0434\u043E\u0432 \u0438 \u0434\u043E\u0445\u043E\u0434\u043E\u0432 \u043F\u043E\u0437\u0432\u043E\u043B\u0438\u0442 \u043F\u0440\u043E\u0432\u0435\u0441\u0442\u0438 \u0430\u043D\u0430\u043B\u0438\u0437 \u0438 \u0432\u044B\u044F\u0441\u043D\u0438\u0442\u044C \u043A\u0443\u0434\u0430 \"\u0438\u0441\u0447\u0435\u0437\u0430\u044E\u0442\" \u0434\u0435\u043D\u044C\u0433\u0438 \u0438 \u043D\u0430 \u0447\u0435\u043C \u043C\u043E\u0436\u043D\u043E \u0441\u044D\u043A\u043E\u043D\u043E\u043C\u0438\u0442\u044C. \u0412\u044B \u043F\u043E \u0434\u0440\u0443\u0433\u043E\u043C\u0443 \u043D\u0430\u0447\u043D\u0435\u0442\u0435 \u043E\u0442\u043D\u043E\u0441\u0438\u0442\u0441\u044F \u043A \u0434\u0435\u043D\u044C\u0433\u0430\u043C, \u0443 \u0432\u0430\u0441 \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F \u043C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u044F \u0431\u043E\u043B\u044C\u0448\u0435 \u043E\u0442\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0442\u044C \u0438 \u043C\u0435\u043D\u044C\u0448\u0435 \u0442\u0440\u0430\u0442\u0438\u0442\u044C.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.footer
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.why
+  }, "\u0421\u0438\u0441\u0442\u0435\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u0437\u0430\u043F\u0438\u0441\u044C \u0432\u0441\u0435\u0445 \u0440\u0430\u0441\u0445\u043E\u0434\u043E\u0432 \u0438 \u0434\u043E\u0445\u043E\u0434\u043E\u0432 \u043F\u043E\u0437\u0432\u043E\u043B\u0438\u0442 \u043F\u0440\u043E\u0432\u0435\u0441\u0442\u0438 \u0430\u043D\u0430\u043B\u0438\u0437 \u0438 \u0432\u044B\u044F\u0441\u043D\u0438\u0442\u044C \u043A\u0443\u0434\u0430 \"\u0438\u0441\u0447\u0435\u0437\u0430\u044E\u0442\" \u0434\u0435\u043D\u044C\u0433\u0438 \u0438 \u043D\u0430 \u0447\u0435\u043C \u043C\u043E\u0436\u043D\u043E \u0441\u044D\u043A\u043E\u043D\u043E\u043C\u0438\u0442\u044C. \u0412\u044B \u043F\u043E \u0434\u0440\u0443\u0433\u043E\u043C\u0443 \u043D\u0430\u0447\u043D\u0435\u0442\u0435 \u043E\u0442\u043D\u043E\u0441\u0438\u0442\u0441\u044F \u043A \u0434\u0435\u043D\u044C\u0433\u0430\u043C, \u0443 \u0432\u0430\u0441 \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F \u043C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u044F \u0431\u043E\u043B\u044C\u0448\u0435 \u043E\u0442\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0442\u044C \u0438 \u043C\u0435\u043D\u044C\u0448\u0435 \u0442\u0440\u0430\u0442\u0438\u0442\u044C."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.buttonContainer
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.letsGo
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/app"
+  }, "\u041D\u0430\u0447\u0430\u0442\u044C \u0443\u0447\u0435\u0442 \u043B\u0438\u0447\u043D\u044B\u0445 \u0444\u0438\u043D\u0430\u043D\u0441\u043E\u0432")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.demo
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/demo"
+  }, "\u0414\u0435\u043C\u043E-\u0430\u043A\u043A\u0430\u0443\u043D\u0442")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.footer
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.contacts
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.contacts
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: _Home_sass__WEBPACK_IMPORTED_MODULE_1___default.a.navEl,
+    className: _Home_sass__WEBPACK_IMPORTED_MODULE_2___default.a.navEl,
     href: "https://vk.com/me6490490"
-  }, "\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u0430\u0432\u0442\u043E\u0440\u043E\u043C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Thank__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
+  }, "\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u0430\u0432\u0442\u043E\u0440\u043E\u043C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Thank__WEBPACK_IMPORTED_MODULE_4__["default"], null))));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Home));
 
 /***/ }),
 
@@ -3717,7 +3729,7 @@ function Home() {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"incomesBright":"#006280","walletsBright":"#189238","costsBright":"#d0193b","incomesPale":"rgba(0, 98, 128, 0.7)","walletsPale":"rgba(24, 146, 56, 0.7)","costsPale":"rgba(208, 25, 59, 0.7)","grey":"grey","green":"#189238","red":"#d0193b","chartsBP":"800px","container":"_3oz5wFX_u30bvsR7h9lwFb","content":"_3J-hwY0uKS6Q6UARM0OI_t","video":"_2s27wW9zt_lp3bDue1yd8E","learnVideo":"isXBTfsoyMKUw_yKpinlF","why":"_1HbbU3fF7Hf5HudZbn09E9","footer":"UldSSsUa52fooY25ZG_MY","navEl":"_2eGzBuD3IKMuOyPEwsCPez","thankHeader":"_34EZQH7DwPPv3h2IOqEUQL"};
+module.exports = {"incomesBright":"#006280","walletsBright":"#189238","costsBright":"#d0193b","incomesPale":"rgba(0, 98, 128, 0.7)","walletsPale":"rgba(24, 146, 56, 0.7)","costsPale":"rgba(208, 25, 59, 0.7)","grey":"grey","green":"#189238","red":"#d0193b","chartsBP":"800px","container":"_3oz5wFX_u30bvsR7h9lwFb","content":"_3J-hwY0uKS6Q6UARM0OI_t","video":"_2s27wW9zt_lp3bDue1yd8E","learnVideo":"isXBTfsoyMKUw_yKpinlF","why":"_1HbbU3fF7Hf5HudZbn09E9","buttonContainer":"qLKdpXEaILW5QRyzFeg0p","letsGo":"_3HCUZ8dtU_L2xvl5pfqkYf","demo":"w3vhfjsJz8PeFQ5JsooEZ","footer":"UldSSsUa52fooY25ZG_MY","navEl":"_2eGzBuD3IKMuOyPEwsCPez","thankHeader":"_34EZQH7DwPPv3h2IOqEUQL"};
 
 /***/ }),
 
@@ -5404,4 +5416,4 @@ __webpack_require__.r(__webpack_exports__);
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.51acf79fcbddf677745f.js.map
+//# sourceMappingURL=index.f5843e95f2cfdc94d719.js.map

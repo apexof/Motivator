@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import style from "./Home.sass";
 import Header from "../Header/Header";
 import Thank from "./Thank";
@@ -30,6 +31,14 @@ function Home() {
           "исчезают" деньги и на чем можно сэкономить. Вы по другому начнете относится к деньгам, у
           вас появится мотивация больше откладывать и меньше тратить.
         </p>
+        <div className={style.buttonContainer}>
+          <div className={style.letsGo}>
+            <Link to="/app">Начать учет личных финансов</Link>
+          </div>
+          <div className={style.demo}>
+            <Link to="/demo">Демо-аккаунт</Link>
+          </div>
+        </div>
       </div>
       <div className={style.footer}>
         <nav className={style.contacts}>
@@ -45,4 +54,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withRouter(Home);
